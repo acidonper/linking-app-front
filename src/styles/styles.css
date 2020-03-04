@@ -1,0 +1,12 @@
+@import "./reset.css";
+@import "./theme.css";
+@import "./header.css";
+@import "./welcome.css";
+@import "./popup.css";
+@import "./footer.css";
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--body-size);
+    background-color: var(--surface-color);
+}

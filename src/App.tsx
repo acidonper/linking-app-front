@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Button } from "./core/components/button/Button";
+import { Icon } from "./core/components/icon/Icon";
+import { Logo } from "./core/components/logo/Logo";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Button theme="header"></Button>
+            <Button theme="regular"></Button>
+            <Icon size="xl" library="material-icons" type="people"></Icon>
+            <Icon size="l" library="material-icons" type="close"></Icon>
+            <Icon size="m" library="material-icons" type="people"></Icon>
+            <Logo size="l"></Logo>
+            <Icon size="xl" library="fa" type="fa-twitter-square"></Icon>
+            <Icon size="s" library="fa" type="fa-instagram"></Icon>
+            <Icon size="m" library="fa" type="fa-facebook-square"></Icon>
+            <Icon size="m" library="fa" type="fa-youtube"></Icon>
+        </>
+    );
 }
 
 export default App;

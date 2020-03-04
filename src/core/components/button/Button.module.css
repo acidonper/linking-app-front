@@ -1,0 +1,31 @@
+.header {
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+  border: 3px solid var(--on-primary-color);
+  font-size: var(--icon-text-size-l);
+  padding: var(--s) var(--l);
+  font-family: var(--title-font);
+}
+
+.header:hover {
+  background-color: var(--cover-primary-color);
+  color: var(--secondary-color);
+}
+
+.regular {
+  background-color: var(--secondary-color);
+  border: 3px solid var(--secondary-color);
+  color: var(--on-secondary-color);
+  font-size: var(--icon-text-size-l);
+  padding: var(--s) var(--xl);
+  box-shadow: 0 var(--s) var(--l) 0 var(--secondary-color);
+  border-radius: 9999px;
+  font-family: var(--title-font);
+  width: min-content;
+}
+
+.regular:hover {
+  background-color: var(--cover-secondary-color);
+  border: 3px solid var(--cover-secondary-color);
+}
+

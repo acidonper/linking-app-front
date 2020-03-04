@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.xs {
+    font-size: var(--icon-xs);
+}
+
+.s {
+    font-size: var(--icon-s);
+}
+
+.m {
+    font-size: var(--icon-m);
+}
+
+.l {
+    font-size: var(--icon-l);
+}
+
+.xl {
+    font-size: var(--icon-xl);
+}
+
+.xxl {
+    font-size: var(--icon-xxl);
+}
