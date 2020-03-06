@@ -15,5 +15,8 @@ export const Icon: React.FunctionComponent<Props> = ({
     library,
     type
 }) => {
-    return <i className={cx(library, type, size)}></i>;
+    if (library === "material-icons")
+        return <i className={cx(library, size)}>{type}</i>;
+    if (library === "fa") return <i className={cx(library, type, size)}></i>;
+    else return <></>;
 };

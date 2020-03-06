@@ -1,0 +1,20 @@
+.content {
+    display: flex;
+    text-align: center;
+    background: var(--surface-color);
+    color: var(--on-surface-color);
+    flex-direction: column;
+    margin-top: var(--m);
+    align-items: center;
+}
+
+.content__center {
+    text-align: center;
+    width: 70%;
+}
+
+.content__center h1 {
+    color: var(--on-surface-color);
+    font-size: var(--title-size);
+    margin: var(--l) 0px var(--l) 0px;
+}

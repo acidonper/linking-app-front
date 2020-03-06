@@ -5,9 +5,10 @@ import styles from "./Button.module.css";
 const cx = bind(styles);
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
-    theme?: "header" | "regular";
+    theme: "header" | "regular";
+    text: string;
 }
 
-export const Button: React.FunctionComponent<Props> = ({ theme }) => {
-    return <button className={cx(theme)}>Un boton</button>;
+export const Button: React.FunctionComponent<Props> = ({ theme, text }) => {
+    return <button className={cx(theme)}>{text}</button>;
 };
