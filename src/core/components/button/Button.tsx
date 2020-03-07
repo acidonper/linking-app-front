@@ -7,8 +7,23 @@ const cx = bind(styles);
 interface Props extends React.HTMLProps<HTMLButtonElement> {
     theme: "header" | "regular";
     text: string;
+    submit?: boolean;
 }
 
-export const Button: React.FunctionComponent<Props> = ({ theme, text }) => {
-    return <button className={cx(theme)}>{text}</button>;
+export const Button: React.FunctionComponent<Props> = ({
+    children,
+    theme,
+    text,
+    submit,
+    ...rest
+}) => {
+    return (
+        <button
+            className={cx(theme)}
+            {...rest}
+            type={submit ? "submit" : "button"}
+        >
+            {text}
+        </button>
+    );
 };
