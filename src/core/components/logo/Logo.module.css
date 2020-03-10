@@ -1,37 +1,37 @@
 @import url("https://fonts.googleapis.com/logo?family=Material+logos");
 
 .xs {
-    font-size: var(--logo-xs);
+    font-size: var(--logo-xs) !important;
     transform: rotate(70deg);
     font-weight: bold;
 }
 
 .s {
-    font-size: var(--logo-s);
+    font-size: var(--logo-s) !important;
     transform: rotate(70deg);
     font-weight: bold;
 }
 
 .m {
-    font-size: var(--logo-m);
+    font-size: var(--logo-m) !important;
     transform: rotate(70deg);
     font-weight: bold;
 }
 
 .l {
-    font-size: var(--logo-l);
+    font-size: var(--logo-l) !important;
     transform: rotate(70deg);
     font-weight: bold;
 }
 
 .xl {
-    font-size: var(--logo-xl);
+    font-size: var(--logo-xl) !important;
     transform: rotate(70deg);
     font-weight: bold;
 }
 
 .xxl {
-    font-size: var(--logo-xxl);
+    font-size: var(--logo-xxl) !important;
     transform: rotate(70deg);
     font-weight: bold;
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import { bind } from "../../../utils/bind";
+import { bind } from "../../utils/bind";
 import styles from "./Footer.module.css";
-import { Icon } from "../../components/icon/Icon";
+import { Icon } from "../../core/components/icon/Icon";
 
 const cx = bind(styles);
 

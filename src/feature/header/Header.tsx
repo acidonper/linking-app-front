@@ -1,9 +1,11 @@
-import React from "react";
-import { bind } from "../../../utils/bind";
+import React, { useState } from "react";
+import { bind } from "../../utils/bind";
 import styles from "./Header.module.css";
-import { Button } from "../../components/button/Button";
-import { Logo } from "../../components/logo/Logo";
-import { Icon } from "../../components/icon/Icon";
+import { Button } from "../../core/components/button/Button";
+import { Logo } from "../../core/components/logo/Logo";
+import { Icon } from "../../core/components/icon/Icon";
+import { Signup } from "../../core/multicomponents/signup/Signup";
+import { Signin } from "../../core/multicomponents/signin/Signin";
 
 const cx = bind(styles);
 
@@ -12,12 +14,23 @@ interface Props {
 }
 
 export const Header: React.FunctionComponent<Props> = ({ type }) => {
+    const [signup, setSignup] = useState(false);
+    const [signin, setSignin] = useState(false);
+
+    const showSignup = () => {
+        setSignup(!signup);
+    };
+
+    const showSignin = () => {
+        setSignin(!signin);
+    };
+
     if (type === "welcome") {
         return (
             <>
                 <header className={cx(type)}>
                     <div className={cx("welcome__logo")}>
-                        <Logo size="xxl"></Logo>
+                        <Logo size="xl"></Logo>
                     </div>
                     <div className={cx("welcome__center")}>
                         <div className={cx("welcome__center__text")}>
@@ -26,13 +39,37 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                             <h1>LIVE</h1>
                         </div>
                         <div>
-                            <Button theme="regular" text="Signup"></Button>
+                            <Button
+                                theme="regular"
+                                text="Signup"
+                                onClick={showSignup}
+                            ></Button>
                         </div>
                     </div>
                     <div className={cx("welcome__login")}>
-                        <Button theme="header" text="Login"></Button>
+                        <Button
+                            theme="header"
+                            text="Login"
+                            onClick={showSignin}
+                        ></Button>
                     </div>
                 </header>
+
+                {signin ? (
+                    <Signin
+                        title="Linking App Login"
+                        text="Login"
+                        closeSignin={showSignin}
+                    ></Signin>
+                ) : null}
+
+                {signup ? (
+                    <Signup
+                        title="Linking App Registration"
+                        text="Register"
+                        closeSignup={showSignup}
+                    ></Signup>
+                ) : null}
             </>
         );
     }

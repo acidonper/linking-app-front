@@ -1,5 +1,5 @@
 import React from "react";
-import { bind } from "../../../utils/bind";
+import { bind } from "../../utils/bind";
 import styles from "./Welcome.module.css";
 import { Header } from "../header/Header";
 import { Footer } from "../footer/Footer";

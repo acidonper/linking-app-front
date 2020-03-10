@@ -1,6 +1,6 @@
 import React from "react";
 import { bind } from "../../../utils/bind";
-import styles from "./Signup.module.css";
+import styles from "./Profile.module.css";
 import { Button } from "../../components/button/Button";
 import { InputText } from "../../components/input/inputtext/InputText";
 import { InputPass } from "../../components/input/inputpassword/InputPass";
@@ -10,13 +10,13 @@ const cx = bind(styles);
 interface Props {
     title: string;
     text: string;
-    closeSignup(): void;
+    closeProfile(): void;
 }
 
-export const Signup: React.FunctionComponent<Props> = ({
+export const Profile: React.FunctionComponent<Props> = ({
     title,
     text,
-    closeSignup
+    closeProfile
 }) => {
     return (
         <div className={cx("popup")}>
@@ -33,7 +33,7 @@ export const Signup: React.FunctionComponent<Props> = ({
                         <Button
                             theme="form"
                             text="Close"
-                            onClick={closeSignup}
+                            onClick={closeProfile}
                         ></Button>
                     </div>
                 </form>

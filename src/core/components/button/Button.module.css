@@ -1,31 +1,44 @@
 .header {
-  background-color: var(--primary-color);
-  color: var(--on-primary-color);
-  border: 3px solid var(--on-primary-color);
-  font-size: var(--icon-text-size-l);
-  padding: var(--s) var(--l);
-  font-family: var(--title-font);
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
+    border: 3px solid var(--on-primary-color);
+    font-size: var(--icon-text-size-l);
+    padding: var(--s) var(--l);
+    font-family: var(--title-font);
 }
 
 .header:hover {
-  background-color: var(--cover-primary-color);
-  color: var(--secondary-color);
+    background-color: var(--cover-primary-color);
+    color: var(--secondary-color);
 }
 
 .regular {
-  background-color: var(--secondary-color);
-  border: 3px solid var(--secondary-color);
-  color: var(--on-secondary-color);
-  font-size: var(--icon-text-size-l);
-  padding: var(--s) var(--xl);
-  box-shadow: 0 var(--s) var(--l) 0 var(--secondary-color);
-  border-radius: 9999px;
-  font-family: var(--title-font);
-  width: min-content;
+    background-color: var(--secondary-color);
+    border: 3px solid var(--secondary-color);
+    color: var(--on-secondary-color);
+    font-size: var(--icon-text-size-l);
+    padding: var(--s) var(--xl);
+    box-shadow: 0 var(--s) var(--l) 0 var(--secondary-color);
+    border-radius: 9999px;
+    font-family: var(--title-font);
+    width: min-content;
 }
 
 .regular:hover {
-  background-color: var(--cover-secondary-color);
-  border: 3px solid var(--cover-secondary-color);
+    background-color: var(--cover-secondary-color);
+    border: 3px solid var(--cover-secondary-color);
 }
 
+.form {
+    background-color: var(--secondary-color);
+    color: var(--on-secondary-color);
+    border: 3px solid var(--on-secondary-color);
+    font-size: var(--icon-text-size-l);
+    padding: var(--s) var(--l);
+    font-family: var(--title-font);
+}
+
+.form:hover {
+    background-color: var(--cover-primary-color);
+    color: var(--secondary-color);
+}

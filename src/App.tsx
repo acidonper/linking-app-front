@@ -1,12 +1,10 @@
 import React from "react";
-import { Welcome } from "./core/multicomponents/welcome/Welcome";
-import { Signup } from "./core/multicomponents/signup/Signup";
+import { Welcome } from "./feature/welcome/Welcome";
 
 function App() {
     return (
         <>
             <Welcome></Welcome>
-            <Signup></Signup>
         </>
     );
 }
