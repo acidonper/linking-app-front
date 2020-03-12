@@ -1,0 +1,13 @@
+.input {
+    border: none;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: var(--s) !important;
+}
+
+form {
+    text-align: right !important;
+}

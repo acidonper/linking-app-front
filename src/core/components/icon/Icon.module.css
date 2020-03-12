@@ -3,24 +3,30 @@
 
 .xs {
     font-size: var(--icon-xs);
+    cursor: default;
 }
 
 .s {
     font-size: var(--icon-s);
+    cursor: default;
 }
 
 .m {
     font-size: var(--icon-m);
+    cursor: default;
 }
 
 .l {
     font-size: var(--icon-l);
+    cursor: default;
 }
 
 .xl {
     font-size: var(--icon-xl);
+    cursor: default;
 }
 
 .xxl {
     font-size: var(--icon-xxl);
+    cursor: default;
 }

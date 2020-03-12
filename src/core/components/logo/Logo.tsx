@@ -9,5 +9,11 @@ interface Props {
 }
 
 export const Logo: React.FunctionComponent<Props> = ({ size }) => {
-    return <i className={cx(size, "material-icons")}>close</i>;
+    return (
+        <>
+            <a href="/">
+                <i className={cx(size, "material-icons")}>close</i>
+            </a>
+        </>
+    );
 };

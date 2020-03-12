@@ -7,10 +7,15 @@ const cx = bind(styles);
 
 interface Props {
     value: string;
+    label: string;
+    onChange(data: string): void;
 }
 
-export const InputPass: React.FunctionComponent<Props> = ({ value }) => {
-    const [inputPass, setInputPass] = useState("");
+export const InputPass: React.FunctionComponent<Props> = ({
+    value,
+    label,
+    onChange
+}) => {
     const [viewPass, setViewPass] = useState(true);
 
     const displayPass = () => {
@@ -21,10 +26,10 @@ export const InputPass: React.FunctionComponent<Props> = ({ value }) => {
         <>
             <input
                 type={viewPass ? "password" : "text"}
-                placeholder={value}
+                placeholder={label}
                 className={cx("input")}
-                value={inputPass}
-                onChange={event => setInputPass(event.target.value)}
+                value={value}
+                onChange={event => onChange(event.target.value)}
             />
             <a className={cx("link")} onClick={displayPass}>
                 <Icon

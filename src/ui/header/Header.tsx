@@ -6,6 +6,7 @@ import { Logo } from "../../core/components/logo/Logo";
 import { Icon } from "../../core/components/icon/Icon";
 import { Signup } from "../../core/multicomponents/signup/Signup";
 import { Signin } from "../../core/multicomponents/signin/Signin";
+import { Profile } from "../../core/multicomponents/profile/Profile";
 
 const cx = bind(styles);
 
@@ -16,6 +17,7 @@ interface Props {
 export const Header: React.FunctionComponent<Props> = ({ type }) => {
     const [signup, setSignup] = useState(false);
     const [signin, setSignin] = useState(false);
+    const [profile, setProfile] = useState(false);
 
     const showSignup = () => {
         setSignup(!signup);
@@ -23,6 +25,10 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
 
     const showSignin = () => {
         setSignin(!signin);
+    };
+
+    const showProfile = () => {
+        setProfile(!profile);
     };
 
     if (type === "welcome") {
@@ -85,12 +91,21 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                             size="m"
                             library="material-icons"
                             type="people"
+                            onClick={showProfile}
                         ></Icon>
                     </div>
                     <div className={cx("regular__logout")}>
                         <Button theme="header" text="Logout"></Button>
                     </div>
                 </header>
+
+                {profile ? (
+                    <Profile
+                        title="Linking App Profile"
+                        text="Save Changes"
+                        closeProfile={showProfile}
+                    ></Profile>
+                ) : null}
             </>
         );
     }

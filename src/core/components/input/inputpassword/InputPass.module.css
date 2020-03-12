@@ -8,4 +8,9 @@
 
 .link {
     cursor: pointer;
+    color: var(--on-surface-footer-color);
+}
+
+.link:hover {
+    color: var(--on-surface-color);
 }

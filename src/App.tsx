@@ -1,5 +1,5 @@
 import React from "react";
-import { Welcome } from "./feature/welcome/Welcome";
+import { Welcome } from "./ui/welcome/Welcome";
 
 function App() {
     return (

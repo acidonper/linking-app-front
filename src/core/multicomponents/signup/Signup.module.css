@@ -34,6 +34,26 @@
     padding-top: var(--l);
 }
 
+.popup__form__container__options {
+    display: flex;
+    flex-direction: row;
+}
+
+.popup__form__container__options__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: var(--l);
+    align-items: flex-start;
+}
+
+.popup__form__container__options__prefs {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: var(--l);
+}
+
 .popup__form__container__button {
     display: flex;
     flex-direction: column;

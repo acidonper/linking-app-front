@@ -4,34 +4,51 @@
     font-size: var(--logo-xs) !important;
     transform: rotate(70deg);
     font-weight: bold;
+    cursor: default;
 }
 
 .s {
     font-size: var(--logo-s) !important;
     transform: rotate(70deg);
     font-weight: bold;
+    cursor: default;
 }
 
 .m {
     font-size: var(--logo-m) !important;
     transform: rotate(70deg);
     font-weight: bold;
+    cursor: default;
 }
 
 .l {
     font-size: var(--logo-l) !important;
     transform: rotate(70deg);
     font-weight: bold;
+    cursor: default;
 }
 
 .xl {
     font-size: var(--logo-xl) !important;
     transform: rotate(70deg);
     font-weight: bold;
+    cursor: default;
 }
 
 .xxl {
     font-size: var(--logo-xxl) !important;
     transform: rotate(70deg);
     font-weight: bold;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: var(--on-primary-color);
+    margin: var(--s);
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--on-primary-color);
 }
