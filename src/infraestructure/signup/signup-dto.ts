@@ -1,4 +1,16 @@
-export interface UserInfo {
+export interface User {
+    name: string;
+    lastname: string;
+    username: string;
+    email: string;
+    password: string;
+    role: "user" | "admin";
+    photos: string[];
+    information: UserInfo;
+    preferences: UserPrefs;
+}
+
+interface UserInfo {
     age: number;
     gender: "male" | "female";
     education: "elementary" | "highSchool" | "university";
@@ -38,11 +50,24 @@ export interface UserInfo {
         | "Sevilla"
         | "Belgrade"
         | "Ufa"
-        | "Rostov-on-Don"
         | "Cologne"
         | "Tekirdağ"
         | "Voronezh"
         | "Perm"
         | "Volgograd"
         | "Odessa";
+}
+
+interface UserPrefs {
+    culturalInterest: "low" | "medium" | "high";
+    sportCadence: "low" | "medium" | "high";
+    travelCadence: "low" | "medium" | "high";
+    owlOrSkyLark: "owl" | "skylark";
+    sexualPreferences: "male" | "female" | "both";
+    ageRange: UserPrefsAgeRange;
+}
+
+interface UserPrefsAgeRange {
+    min: number;
+    max: number;
 }

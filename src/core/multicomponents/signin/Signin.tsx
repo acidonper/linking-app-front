@@ -25,11 +25,11 @@ export const Signin: React.FunctionComponent<Props> = ({
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         const token = await apiLogin(inputText, inputPass);
-        localStorage.setItem("token", token);
 
         if (typeof token !== "string") {
             alert(token);
         } else {
+            localStorage.setItem("token", token);
             alert("token: " + token);
         }
     };
@@ -43,14 +43,17 @@ export const Signin: React.FunctionComponent<Props> = ({
                     onSubmit={handleSubmit}
                 >
                     <InputText
-                        onChange={data => setInputText(data)}
+                        onChange={(data: string) => setInputText(data)}
                         label="Username"
                         value={inputText}
+                        required={true}
+                        type="text"
                     />
                     <InputPass
                         onChange={data => setInputPass(data)}
                         label="Password"
                         value={inputPass}
+                        required={true}
                     />
                     <div className={cx("popup__form__container__button")}>
                         <Button submit theme="form" text={text}></Button>

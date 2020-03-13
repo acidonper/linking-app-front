@@ -5,28 +5,33 @@ import styles from "./InputRadio.module.css";
 const cx = bind(styles);
 
 interface Props {
-    value: string;
-    label: string;
-    checked: boolean;
-    onChange(data: string): void;
+    name: string;
+    labels: any[];
+    onChange(data: string | boolean): void;
 }
 
 export const InputRadio: React.FunctionComponent<Props> = ({
-    value,
-    label,
-    onChange,
-    checked
+    name,
+    labels,
+    onChange
 }) => {
     return (
-        <>
-            {label}
-            <input
-                type="radio"
-                className={cx("input")}
-                value={value}
-                onChange={event => onChange(event.target.value)}
-                checked={checked}
-            />
-        </>
+        <div className={cx("radio")}>
+            <h2>{name}</h2>
+            <div className={cx("radio__form")}>
+                {labels.map(label => (
+                    <div className={cx("radio__form__item")}>
+                        <input
+                            name={name}
+                            type="radio"
+                            onChange={event => onChange(event.target.value)}
+                            required={true}
+                            value={label}
+                        />
+                        <p>{label.toString()}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };

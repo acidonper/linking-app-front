@@ -5,22 +5,28 @@ import styles from "./InputText.module.css";
 const cx = bind(styles);
 
 interface Props {
-    value: string;
+    type: "text" | "email";
+    value: string | number;
     label: string;
-    onChange(data: string): void;
+    onChange(data: string | number): void;
+    required?: boolean;
 }
 
 export const InputText: React.FunctionComponent<Props> = ({
+    type,
     value,
     label,
-    onChange
+    onChange,
+    required
 }) => {
     return (
         <input
+            type={type}
             placeholder={label}
             className={cx("input")}
             value={value}
             onChange={event => onChange(event.target.value)}
+            required={required}
         />
     );
 };

@@ -21,6 +21,7 @@
     color: var(--secondary-color);
     border-radius: var(--s);
     padding: var(--l) var(--xxl);
+    overflow: auto !important;
 }
 
 .popup__form__container {
@@ -44,7 +45,20 @@
     flex: 1;
     flex-direction: column;
     padding: var(--l);
-    align-items: flex-start;
+}
+.popup__form__container__options__info__age {
+    display: flex;
+    flex-direction: column;
+    padding: var(--l);
+}
+
+.popup__form__container__options__info__age h2 {
+    margin-bottom: var(--m);
+    text-align: left !important;
+}
+
+.popup__form__container__options__info__age input {
+    margin: 0px !important;
 }
 
 .popup__form__container__options__prefs {
@@ -52,6 +66,21 @@
     flex: 1;
     flex-direction: column;
     padding: var(--l);
+}
+
+.popup__form__container__options__prefs__age {
+    display: flex;
+    flex-direction: column;
+    padding: var(--l);
+}
+
+.popup__form__container__options__prefs__age h2 {
+    margin-bottom: var(--m);
+    text-align: left !important;
+}
+
+.popup__form__container__options__prefs__age input {
+    margin: 0px !important;
 }
 
 .popup__form__container__button {

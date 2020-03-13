@@ -1,13 +1,30 @@
-.input {
-    border: none;
+.radio {
+    display: flex;
+    flex-direction: column;
+    padding: var(--l);
 }
 
-h1,
-h2 {
-    text-align: center;
-    margin-bottom: var(--s) !important;
+.radio h2 {
+    margin-bottom: var(--m);
+    text-align: left !important;
 }
 
-form {
-    text-align: right !important;
+.radio__form {
+    display: flex;
+    flex-direction: column;
+    max-height: var(--radio-size-m);
+    overflow: auto !important;
+}
+
+.radio__form__item {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio__form__item input {
+    margin-right: var(--m);
+}
+
+.radio__form__item p {
+    font-size: var(--m);
 }

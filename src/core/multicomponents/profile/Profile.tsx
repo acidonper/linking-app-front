@@ -27,29 +27,38 @@ export const Profile: React.FunctionComponent<Props> = ({
                 <h2>{title}</h2>
                 <form className={cx("popup__form__container")}>
                     <InputText
-                        onChange={data => setInputText(data)}
+                        onChange={(data: string) => setInputText(data)}
                         label="First Name"
                         value={inputText}
+                        required={true}
+                        type="text"
                     />
                     <InputText
-                        onChange={data => setInputText(data)}
+                        onChange={(data: string) => setInputText(data)}
                         label="Last Name"
                         value={inputText}
+                        required={true}
+                        type="text"
                     />
                     <InputText
-                        onChange={data => setInputText(data)}
+                        onChange={(data: string) => setInputText(data)}
                         label="Username"
                         value={inputText}
+                        required={true}
+                        type="text"
                     />
                     <InputText
-                        onChange={data => setInputText(data)}
+                        onChange={(data: string) => setInputText(data)}
                         label="Email"
                         value={inputText}
+                        required={true}
+                        type="email"
                     />
                     <InputPass
-                        onChange={data => setInputPass(data)}
+                        onChange={(data: string) => setInputPass(data)}
                         label="Password"
                         value={inputPass}
+                        required={true}
                     />
                     <div className={cx("popup__form__container__button")}>
                         <Button submit theme="form" text={text}></Button>

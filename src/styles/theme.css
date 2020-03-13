@@ -43,4 +43,9 @@
 
     --icon-text-size-xl: 30px;
     --icon-text-size-l: 15px;
+
+    --radio-size-xl: 300px;
+    --radio-size-l: 200px;
+    --radio-size-m: 114px;
+    --radio-size-s: 50px;
 }
