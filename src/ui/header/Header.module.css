@@ -42,6 +42,14 @@
 
 .regular__logo {
     padding: var(--m);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.regular__logo h1 {
+    margin-left: var(--m);
+    font-weight: bold;
 }
 
 .regular__profile {
@@ -54,4 +62,30 @@
 .regular__logout {
     padding: var(--m) var(--xl) var(--m) var(--l);
     margin-left: auto;
+}
+
+.popup {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup__form {
+    position: relative;
+    text-align: center;
+    background: var(--on-secondary-color);
+    color: var(--secondary-color);
+    border-radius: var(--s);
+    padding: var(--l) var(--xxl);
+    overflow: auto !important;
 }

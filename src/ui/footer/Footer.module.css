@@ -13,6 +13,10 @@
     color: var(--on-surface-color);
 }
 
+.footer__brand h3:hover {
+    cursor: default;
+}
+
 .footer__sections {
     flex: 1;
     display: flex;
@@ -31,6 +35,7 @@
 .footer__sections a:hover {
     text-decoration: none;
     color: var(--on-surface-color);
+    cursor: default;
 }
 
 .footer__socialmedia {
@@ -45,7 +50,7 @@
     margin: var(--s);
 }
 
-.footer__socialmedia a:hover {
+/* .footer__socialmedia a:hover {
     text-decoration: none;
     color: var(--on-surface-color);
-}
+} */

@@ -10,13 +10,15 @@ interface Props {
     label: string;
     onChange(data: string): void;
     required: boolean;
+    security?: boolean;
 }
 
 export const InputPass: React.FunctionComponent<Props> = ({
     value,
     label,
     onChange,
-    required
+    required,
+    security
 }) => {
     const [viewPass, setViewPass] = useState(true);
 
@@ -26,16 +28,27 @@ export const InputPass: React.FunctionComponent<Props> = ({
 
     return (
         <>
-            <input
-                type={viewPass ? "password" : "text"}
-                placeholder={label}
-                className={cx("input")}
-                value={value}
-                onChange={event => onChange(event.target.value)}
-                required={required}
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-            />
+            {security ? (
+                <input
+                    type={viewPass ? "password" : "text"}
+                    placeholder={label}
+                    className={cx("input")}
+                    value={value}
+                    onChange={event => onChange(event.target.value)}
+                    required={required}
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                />
+            ) : (
+                <input
+                    type={viewPass ? "password" : "text"}
+                    placeholder={label}
+                    className={cx("input")}
+                    value={value}
+                    onChange={event => onChange(event.target.value)}
+                    required={required}
+                />
+            )}
             <a className={cx("link")} onClick={displayPass}>
                 <Icon
                     size="s"

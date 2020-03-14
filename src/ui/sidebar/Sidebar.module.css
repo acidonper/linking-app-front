@@ -1,0 +1,13 @@
+.sidebar__item {
+    display: flex;
+    flex-direction: row;
+    padding: var(--m);
+    border-bottom: 2px solid var(--on-sidebar-color);
+    margin-bottom: var(--l);
+    align-items: center;
+}
+
+.sidebar__item a {
+    cursor: default;
+    margin-left: var(--m);
+}

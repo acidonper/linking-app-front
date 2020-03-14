@@ -1,10 +1,10 @@
 import axios from "axios";
 import { User } from "../../domain/User";
-import { User as UserSignup } from "./signup-dto";
+import { User as UserProfile } from "./profile-dto";
 
-import { UserToSignupDtoMapper } from "./mapper-user-to-signup-dto";
+import { UserToProfileDtoMapper } from "./mapper-user-to-profile-dto";
 
-export const apiSignup = async (user: User) => {
+export const apiModify = async (user: User) => {
     // const url = `http://{process.env.SERVER_PORT}:{process.env.SERVER_PORT}/api/auth/login`;
 
     const url = "http://localhost:5000/api/users/register";
@@ -12,9 +12,9 @@ export const apiSignup = async (user: User) => {
     user.photos = [""];
     user.role = "user";
 
-    const data = new UserToSignupDtoMapper();
+    const data = new UserToProfileDtoMapper();
 
-    const datadto: UserSignup = data.map(user);
+    const datadto: UserProfile = data.map(user);
 
     console.log(datadto);
 

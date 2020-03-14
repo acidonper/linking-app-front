@@ -4,9 +4,12 @@ import styles from "./Header.module.css";
 import { Button } from "../../core/components/button/Button";
 import { Logo } from "../../core/components/logo/Logo";
 import { Icon } from "../../core/components/icon/Icon";
-import { Signup } from "../../core/multicomponents/signup/Signup";
-import { Signin } from "../../core/multicomponents/signin/Signin";
+import { Login } from "../../core/multicomponents/login/Login";
 import { Profile } from "../../core/multicomponents/profile/Profile";
+import { apiSignup } from "../../infraestructure/profile/signup";
+import { apiLogin } from "../../infraestructure/auth/login";
+import { User } from "../../domain/User";
+import { apiModify } from "../../infraestructure/profile/modify";
 
 const cx = bind(styles);
 
@@ -29,6 +32,29 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
 
     const showProfile = () => {
         setProfile(!profile);
+    };
+
+    const submitSingup = async (inputUser: User) => {
+        const newuser = await apiSignup(inputUser);
+        if (typeof newuser !== "string") {
+            return newuser;
+        } else {
+            return newuser;
+        }
+    };
+
+    const submitProfile = async (inputUser: User) => {
+        const newuser = await apiModify(inputUser);
+        if (typeof newuser !== "string") {
+            return newuser;
+        } else {
+            return newuser;
+        }
+    };
+
+    const submitSignin = async (inputText: string, inputPass: string) => {
+        const token = await apiLogin(inputText, inputPass);
+        return token;
     };
 
     if (type === "welcome") {
@@ -62,19 +88,29 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                 </header>
 
                 {signin ? (
-                    <Signin
-                        title="Linking App Login"
-                        text="Login"
-                        closeSignin={showSignin}
-                    ></Signin>
+                    <div className={cx("popup")}>
+                        <div className={cx("popup__form")}>
+                            <Login
+                                title="Linking App Login"
+                                text="Login"
+                                close={showSignin}
+                                submit={submitSignin}
+                            ></Login>
+                        </div>
+                    </div>
                 ) : null}
 
                 {signup ? (
-                    <Signup
-                        title="Linking App Registration"
-                        text="Register"
-                        closeSignup={showSignup}
-                    ></Signup>
+                    <div className={cx("popup")}>
+                        <div className={cx("popup__form")}>
+                            <Profile
+                                title="Linking App Registration"
+                                text="Register"
+                                close={showSignup}
+                                submit={submitSingup}
+                            ></Profile>
+                        </div>
+                    </div>
                 ) : null}
             </>
         );
@@ -85,6 +121,7 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                 <header className={cx(type)}>
                     <div className={cx("regular__logo")}>
                         <Logo size="m"></Logo>
+                        <h1>Linking</h1>
                     </div>
                     <div className={cx("regular__profile")}>
                         <Icon
@@ -100,11 +137,16 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                 </header>
 
                 {profile ? (
-                    <Profile
-                        title="Linking App Profile"
-                        text="Save Changes"
-                        closeProfile={showProfile}
-                    ></Profile>
+                    <div className={cx("popup")}>
+                        <div className={cx("popup__form")}>
+                            <Profile
+                                title="Linking App Profile"
+                                text="Save Changes"
+                                close={showProfile}
+                                submit={submitProfile}
+                            ></Profile>
+                        </div>
+                    </div>
                 ) : null}
             </>
         );

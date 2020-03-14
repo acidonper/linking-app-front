@@ -1,8 +1,8 @@
-import { User as SignupDto } from "./signup-dto";
+import { User as ProfileDto } from "./profile-dto";
 import { User } from "../../domain/User";
 
-export class UserToSignupDtoMapper {
-    map(User: User): SignupDto {
+export class UserToProfileDtoMapper {
+    map(User: User): ProfileDto {
         return {
             name: User.name,
             lastname: User.lastname,
