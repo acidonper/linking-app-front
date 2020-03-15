@@ -1,10 +1,12 @@
 import axios from "axios";
 import { User } from "../../domain/User";
 import { User as UserProfile } from "./profile-dto";
-
 import { UserToProfileDtoMapper } from "./mapper-user-to-profile-dto";
 
 export const apiModify = async (user: User) => {
+    //
+    // TODO - Implenent and use profile modification backends and sent TOKEN
+    //
     // const url = `http://{process.env.SERVER_PORT}:{process.env.SERVER_PORT}/api/auth/login`;
 
     const url = "http://localhost:5000/api/users/register";

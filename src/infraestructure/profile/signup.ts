@@ -1,7 +1,6 @@
 import axios from "axios";
 import { User } from "../../domain/User";
 import { User as UserProfile } from "./profile-dto";
-
 import { UserToProfileDtoMapper } from "./mapper-user-to-profile-dto";
 
 export const apiSignup = async (user: User) => {

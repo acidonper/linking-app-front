@@ -1,0 +1,22 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--card-xl));
+    grid-gap: var(--m);
+}
+
+.container__card {
+    padding: 12px;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.container__card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container__card img {
+    border-radius: 5px 5px 0 0;
+    height: var(--image-xl);
+    width: var(--image-xl);
+}

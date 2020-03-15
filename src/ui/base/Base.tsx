@@ -4,6 +4,7 @@ import styles from "./Base.module.css";
 import { Header } from "../header/Header";
 import { Footer } from "../footer/Footer";
 import { Sidebar } from "../sidebar/Sidebar";
+import { Pick } from "../pick/Pick";
 
 const cx = bind(styles);
 
@@ -24,27 +25,21 @@ export const Base: React.FunctionComponent<Props> = () => {
                     <Sidebar onclick={changeBaseDisplay} />
                 </div>
                 <div className={cx("content")}>
-                    {display === "pick" && <h1>pick</h1>}
+                    {display === "pick" && (
+                        <>
+                            <Pick></Pick>
+                            <h1>pick</h1>
+                        </>
+                    )}
                     {display === "live" && <h1>live</h1>}
                     {display === "chat" && <h1>live</h1>}
-                    <h2>adsasd</h2>
-                    <h1>adsasd</h1>
-                    <h1>adsasd</h1>
-                    <h1>adsasd</h1>
-                    <h1>adsasd</h1>
-                    <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
-                    <h1>adsasd</h1> <h1>adsasd</h1> <h1>adsasd</h1>
+                    <h2>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Molestias ipsam, perferendis numquam soluta dolores
+                        consequuntur totam iusto quam, aliquid in libero natus
+                        necessitatibus tenetur beatae sed, rerum praesentium
+                        veniam dolor?
+                    </h2>
                 </div>
             </div>
             <Footer></Footer>

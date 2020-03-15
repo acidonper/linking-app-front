@@ -5,10 +5,10 @@ import { Button } from "../../core/components/button/Button";
 import { Logo } from "../../core/components/logo/Logo";
 import { Icon } from "../../core/components/icon/Icon";
 import { Login } from "../../core/multicomponents/login/Login";
+import { User } from "../../domain/User";
 import { Profile } from "../../core/multicomponents/profile/Profile";
 import { apiSignup } from "../../infraestructure/profile/signup";
 import { apiLogin } from "../../infraestructure/auth/login";
-import { User } from "../../domain/User";
 import { apiModify } from "../../infraestructure/profile/modify";
 
 const cx = bind(styles);

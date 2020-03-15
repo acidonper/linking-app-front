@@ -4,7 +4,6 @@ import styles from "./Login.module.css";
 import { Button } from "../../components/button/Button";
 import { InputText } from "../../components/input/inputtext/InputText";
 import { InputPass } from "../../components/input/inputpassword/InputPass";
-import { apiLogin } from "../../../infraestructure/auth/login";
 
 const cx = bind(styles);
 
@@ -30,6 +29,7 @@ export const Login: React.FunctionComponent<Props> = ({
         if (typeof response !== "string") {
             alert("Error: Login invalid. Please try again");
         } else {
+            localStorage.setItem("username", String(inputText));
             localStorage.setItem("token", String(response));
             alert("Token: " + response);
         }

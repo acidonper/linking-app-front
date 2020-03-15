@@ -9,7 +9,7 @@ interface Props {
     onclick(item: string): void;
 }
 
-export const Sidebar: React.FunctionComponent<Props> = onclick => {
+export const Sidebar: React.FunctionComponent<Props> = (children, onclick) => {
     return (
         <>
             <div>
@@ -19,23 +19,29 @@ export const Sidebar: React.FunctionComponent<Props> = onclick => {
                         library="material-icons"
                         type="image_search"
                     ></Icon>
-                    <a onClick={() => onclick("Pick")}>Pick</a>
+                    <a>Pick</a>
                 </div>
-                <div className={cx("sidebar__item")}>
+                <div
+                    className={cx("sidebar__item")}
+                    onClick={() => onclick("Live")}
+                >
                     <Icon
                         size="s"
                         library="material-icons"
                         type="done_all"
                     ></Icon>
-                    <a onClick={() => onclick("Live")}>Live</a>
+                    <a>Live</a>
                 </div>
-                <div className={cx("sidebar__item")}>
+                <div
+                    className={cx("sidebar__item")}
+                    onClick={() => onclick("Chat")}
+                >
                     <Icon
                         size="s"
                         library="material-icons"
                         type="chat_bubble_outline"
                     ></Icon>
-                    <a onClick={() => onclick("Chat")}>Chat</a>
+                    <a>Chat</a>
                 </div>
             </div>
         </>
