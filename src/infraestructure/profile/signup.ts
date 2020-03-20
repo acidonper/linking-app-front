@@ -4,9 +4,7 @@ import { User as UserProfile } from "./profile-dto";
 import { UserToProfileDtoMapper } from "./mapper-user-to-profile-dto";
 
 export const apiSignup = async (user: User) => {
-    // const url = `http://{process.env.SERVER_PORT}:{process.env.SERVER_PORT}/api/auth/login`;
-
-    const url = "http://localhost:5000/api/users/register";
+    const url = process.env.REACT_APP_LINKING_APP_URL + "/api/users/register";
 
     user.photos = [""];
     user.role = "user";
@@ -15,13 +13,10 @@ export const apiSignup = async (user: User) => {
 
     const datadto: UserProfile = data.map(user);
 
-    console.log(datadto);
-
     try {
         const response = await axios.post(url, datadto);
         return response.data.message;
     } catch (error) {
-        console.log(error);
         return error;
     }
 };

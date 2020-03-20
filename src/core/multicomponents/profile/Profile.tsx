@@ -40,7 +40,7 @@ export const Profile: React.FunctionComponent<Props> = ({
 
     return (
         <>
-            <h2>{title}</h2>
+            <div className={cx("title")}>{title}</div>
             <form className={cx("container")} onSubmit={handleSubmit}>
                 <div className={cx("container__main")}>
                     <InputText

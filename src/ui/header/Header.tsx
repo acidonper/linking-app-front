@@ -5,10 +5,11 @@ import { Button } from "../../core/components/button/Button";
 import { Logo } from "../../core/components/logo/Logo";
 import { Icon } from "../../core/components/icon/Icon";
 import { Login } from "../../core/multicomponents/login/Login";
+import { Logout } from "../../core/multicomponents/logout/Logout";
 import { User } from "../../domain/User";
 import { Profile } from "../../core/multicomponents/profile/Profile";
 import { apiSignup } from "../../infraestructure/profile/signup";
-import { apiLogin } from "../../infraestructure/auth/login";
+import { apiLogin, apiLogout } from "../../infraestructure/auth/login";
 import { apiModify } from "../../infraestructure/profile/modify";
 
 const cx = bind(styles);
@@ -57,6 +58,10 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
         return token;
     };
 
+    const submitLogout = () => {
+        apiLogout();
+    };
+
     if (type === "welcome") {
         return (
             <>
@@ -93,6 +98,7 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                             <Login
                                 title="Linking App Login"
                                 text="Login"
+                                redirectPath="/home"
                                 close={showSignin}
                                 submit={submitSignin}
                             ></Login>
@@ -132,7 +138,12 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                         ></Icon>
                     </div>
                     <div className={cx("regular__logout")}>
-                        <Button theme="header" text="Logout"></Button>
+                        <Logout
+                            theme="header"
+                            text="Logout"
+                            redirectPath="/welcome"
+                            onSubmit={submitLogout}
+                        ></Logout>
                     </div>
                 </header>
 

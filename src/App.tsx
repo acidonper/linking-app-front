@@ -1,20 +1,15 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
-import { Welcome } from "./ui/welcome/Welcome";
-import { Base } from "./ui/base/Base";
+import { BrowserRouter, Switch } from "react-router-dom";
+import { PrivateRoutes } from "./routes/Private";
+import { PublicRoutes } from "./routes/Public";
 
 function App() {
     return (
         <BrowserRouter>
-            <div>
-                <Switch>
-                    <Route path="/welcome" component={Welcome} />
-                </Switch>
-                <Switch>
-                    <Route path="/base" component={Base} />
-                </Switch>
-            </div>
+            <Switch>
+                <PublicRoutes />
+                <PrivateRoutes />
+            </Switch>
         </BrowserRouter>
     );
 }

@@ -1,3 +1,9 @@
+.title {
+    margin-top: var(--l);
+    font-size: var(--title-size-s);
+    font-weight: bold;
+}
+
 .container {
     display: flex;
     flex-direction: column;

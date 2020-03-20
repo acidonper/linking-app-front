@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { bind } from "../../../utils/bind";
 import styles from "./Login.module.css";
 import { Button } from "../../components/button/Button";
@@ -10,16 +11,21 @@ const cx = bind(styles);
 interface Props {
     title: string;
     text: string;
+    redirectPath: string;
     close(): void;
     submit(user: string, pass: string): void;
 }
 
 export const Login: React.FunctionComponent<Props> = ({
+    children,
     title,
     text,
     close,
-    submit
+    submit,
+    redirectPath
 }) => {
+    let history = useHistory();
+
     const [inputText, setInputText] = useState("");
     const [inputPass, setInputPass] = useState("");
 
@@ -31,13 +37,15 @@ export const Login: React.FunctionComponent<Props> = ({
         } else {
             localStorage.setItem("username", String(inputText));
             localStorage.setItem("token", String(response));
-            alert("Token: " + response);
+            setTimeout(() => {
+                history.push(redirectPath);
+            }, 400);
         }
     };
 
     return (
         <>
-            <h2>{title}</h2>
+            <div className={cx("title")}>{title}</div>
             <form className={cx("container")} onSubmit={handleSubmit}>
                 <InputText
                     onChange={(data: string) => setInputText(data)}

@@ -4,11 +4,6 @@ import App from "./App";
 import "./styles/styles.css";
 import * as serviceWorker from "./serviceWorker";
 
-import { resolve } from "path";
-import { config } from "dotenv";
-
-config({ path: resolve(__dirname, "../.env") });
-
 ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

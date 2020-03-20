@@ -1,15 +1,14 @@
 import React from "react";
+import { useRouteMatch, Link } from "react-router-dom";
 import { bind } from "../../utils/bind";
 import styles from "./Sidebar.module.css";
 import { Icon } from "../../core/components/icon/Icon";
 
 const cx = bind(styles);
 
-interface Props {
-    onclick(item: string): void;
-}
+export const Sidebar: React.FunctionComponent<{}> = children => {
+    let { url } = useRouteMatch();
 
-export const Sidebar: React.FunctionComponent<Props> = (children, onclick) => {
     return (
         <>
             <div>
@@ -19,29 +18,23 @@ export const Sidebar: React.FunctionComponent<Props> = (children, onclick) => {
                         library="material-icons"
                         type="image_search"
                     ></Icon>
-                    <a>Pick</a>
+                    <Link to={`${url}/pick`}>Pick</Link>
                 </div>
-                <div
-                    className={cx("sidebar__item")}
-                    onClick={() => onclick("Live")}
-                >
+                <div className={cx("sidebar__item")}>
                     <Icon
                         size="s"
                         library="material-icons"
                         type="done_all"
                     ></Icon>
-                    <a>Live</a>
+                    <Link to={`${url}/live`}>Live</Link>
                 </div>
-                <div
-                    className={cx("sidebar__item")}
-                    onClick={() => onclick("Chat")}
-                >
+                <div className={cx("sidebar__item")}>
                     <Icon
                         size="s"
                         library="material-icons"
                         type="chat_bubble_outline"
                     ></Icon>
-                    <a>Chat</a>
+                    <Link to={`${url}/chat`}>Chat</Link>
                 </div>
             </div>
         </>

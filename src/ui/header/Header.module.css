@@ -88,4 +88,26 @@
     border-radius: var(--s);
     padding: var(--l) var(--xxl);
     overflow: auto !important;
+    margin-top: var(--xl);
+    margin-bottom: var(--xl);
+}
+
+::-webkit-scrollbar {
+    width: var(--s);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--on-primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--on-primary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+    border-radius: 9999px;
+    width: var(--m);
+    height: var(--l);
 }

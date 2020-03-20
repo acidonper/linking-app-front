@@ -7,9 +7,9 @@ export const apiGetSuggestions = async (
     token: string,
     username: string
 ): Promise<Card[]> => {
-    // const url = `http://{process.env.SERVER_PORT}:{process.env.SERVER_PORT}/api/auth/login`;
-
-    const url = "http://localhost:5000/api/users/suggestions?id=" + username;
+    const url =
+        process.env.REACT_APP_LINKING_APP_URL +
+        "/api/users/suggestions?id={username}";
 
     const createAxios = axios.create({
         timeout: 3000,
@@ -20,7 +20,6 @@ export const apiGetSuggestions = async (
 
     try {
         const response = await createAxios.get(url);
-        console.log(response);
         const responseUserProfiles: UserProfile[] = response.data.users;
 
         responseUserProfiles.map(profile => {

@@ -7,9 +7,8 @@ export const apiModify = async (user: User) => {
     //
     // TODO - Implenent and use profile modification backends and sent TOKEN
     //
-    // const url = `http://{process.env.SERVER_PORT}:{process.env.SERVER_PORT}/api/auth/login`;
 
-    const url = "http://localhost:5000/api/users/register";
+    const url = process.env.REACT_APP_LINKING_APP_URL + "/api/users/register";
 
     user.photos = [""];
     user.role = "user";

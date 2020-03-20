@@ -15,6 +15,6 @@
 
 .content__center h1 {
     color: var(--on-surface-color);
-    font-size: var(--title-size);
+    font-size: var(--title-size-l);
     margin: var(--l) 0px var(--l) 0px;
 }

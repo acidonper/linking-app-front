@@ -9,7 +9,11 @@
     --xxl: 8rem;
 
     --body-size: 22px;
-    --title-size: 35px;
+
+    --title-size-m: 20px;
+    --title-size-m: 30px;
+    --title-size-l: 35px;
+
     --title-front-size: 135px;
 
     --body-font: Comfortaa;
