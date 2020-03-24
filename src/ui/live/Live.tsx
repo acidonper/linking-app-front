@@ -1,53 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { bind } from "../../utils/bind";
-import styles from "./Pick.module.css";
+import styles from "./Live.module.css";
 import { Card } from "../../domain/Card";
-import { apiGetSuggestions } from "../../infrastructure/suggestion/suggestions";
-import { apiAddBeloved } from "../../infrastructure/suggestion/beloved";
+import { apiGetMatches } from "../../infrastructure/suggestion/matches";
 import { Icon } from "../../core/components/icon/Icon";
 
 const cx = bind(styles);
 
 interface Props {}
 
-export const Pick: React.FunctionComponent<Props> = children => {
+export const Live: React.FunctionComponent<Props> = children => {
     let initCards: Card[] = [{}] as any;
 
     const [cards, setCards] = useState(initCards);
 
-    const loadSuggestions = async () => {
+    const loadMatches = async () => {
         const token: string = localStorage.getItem("token") + "";
         const username: string = localStorage.getItem("username") + "";
-        const suggestions = await apiGetSuggestions(token, username);
-        if (Array.isArray(suggestions)) {
-            setCards(suggestions);
+        const matches = await apiGetMatches(token, username);
+        if (Array.isArray(matches)) {
+            setCards(matches);
         } else {
             alert("Error: Operation could not be completed. Please try again");
         }
     };
 
     useEffect(() => {
-        loadSuggestions();
+        loadMatches();
     }, []);
 
-    const submitDiscardSuggestion = (index: number) => {
+    const submitDiscardMatch = (username: string, index: number) => {
         const newCards = [...cards];
         newCards.splice(index, 1);
         setCards(newCards);
-    };
-
-    const submitBeloved = async (suggestion: string, index: number) => {
-        const token: string = localStorage.getItem("token") + "";
-        const username: string = localStorage.getItem("username") + "";
-        const belovedAdded = await apiAddBeloved(token, username, suggestion);
-        if (typeof belovedAdded === "string") {
-            const newCards = [...cards];
-            newCards.splice(index, 1);
-            setCards(newCards);
-        } else {
-            alert("Error: Operation could not be completed. Please try again");
-        }
-        console.log(belovedAdded);
+        console.log(username, index);
     };
 
     if (cards.length >= 1 && cards[0].username) {
@@ -75,6 +61,17 @@ export const Pick: React.FunctionComponent<Props> = children => {
                                     )}
                                 >
                                     <p>{card.infoGender}</p>
+                                    <div
+                                        className={cx(
+                                            "container__card__data__others__Icon"
+                                        )}
+                                    >
+                                        <Icon
+                                            size="m"
+                                            library="material-icons"
+                                            type="favorite"
+                                        ></Icon>
+                                    </div>
                                 </div>
                                 <div
                                     className={cx(
@@ -86,15 +83,10 @@ export const Pick: React.FunctionComponent<Props> = children => {
                                         library="material-icons"
                                         type="close"
                                         onClick={() =>
-                                            submitDiscardSuggestion(index)
-                                        }
-                                    ></Icon>
-                                    <Icon
-                                        size="m"
-                                        library="material-icons"
-                                        type="favorite_border"
-                                        onClick={() =>
-                                            submitBeloved(card.username, index)
+                                            submitDiscardMatch(
+                                                card.username,
+                                                index
+                                            )
                                         }
                                     ></Icon>
                                 </div>
@@ -105,6 +97,16 @@ export const Pick: React.FunctionComponent<Props> = children => {
             </>
         );
     } else {
-        return <></>;
+        return (
+            <>
+                <div className={cx("message")}>
+                    <h1 className={cx("message__title")}>
+                        Matches is comming soon!
+                    </h1>
+                    <h1>Give Live a Chance!</h1>
+                    <h1>Go to Pick...</h1>
+                </div>
+            </>
+        );
     }
 };

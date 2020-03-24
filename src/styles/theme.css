@@ -33,6 +33,7 @@
 
     --sidebar-color: #e8aeb3;
     --on-sidebar-color: white;
+    --sidebar-height-size: 600px;
 
     --logo-xxl: 150px;
     --logo-xl: 125px;
@@ -50,13 +51,17 @@
 
     --image-xxl: 350px;
     --image-xl: 200px;
+    --image-xl-horizontal-width: 400px;
+    --image-xl-horizontal-height: 215px;
+    --image-xl-vertical-width: 300px;
+    --image-xl-vertical-height: 375px;
     --image-l: 100px;
     --image-m: 40px;
     --image-s: 25px;
     --image-xs: 10px;
 
     --card-xxl: 400px;
-    --card-xl: 250px;
+    --card-xl: 300px;
     --card-l: 150px;
     --card-m: 100px;
     --card-s: 50px;

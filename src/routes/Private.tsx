@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { isAuthenticated } from "../infraestructure/auth/login";
+import { isAuthenticated } from "../infrastructure/auth/login";
 import { Home } from "../ui/home/Home";
 
 export const PrivateRoutes: React.FunctionComponent<{}> = ({
@@ -9,7 +9,7 @@ export const PrivateRoutes: React.FunctionComponent<{}> = ({
 }) => {
     return (
         <Route
-            path="/home"
+            path="/base"
             {...rest}
             render={({ location }) =>
                 isAuthenticated() ? (

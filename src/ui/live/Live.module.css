@@ -45,8 +45,21 @@
     padding-bottom: var(--l);
 }
 
+.container__card__data__others__Icon {
+    color: var(--secondary-color);
+}
+
 .container__card__data__options {
     display: flex;
     justify-content: space-around;
     padding-bottom: var(--m);
+}
+
+.message h1 {
+    margin: var(--m);
+}
+
+.message__title {
+    margin: var(--m);
+    font-weight: bold;
 }

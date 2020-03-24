@@ -11,7 +11,7 @@ export const Sidebar: React.FunctionComponent<{}> = children => {
 
     return (
         <>
-            <div>
+            <div className={cx("sidebar")}>
                 <div className={cx("sidebar__item")}>
                     <Icon
                         size="s"

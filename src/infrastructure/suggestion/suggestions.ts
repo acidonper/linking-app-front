@@ -9,7 +9,8 @@ export const apiGetSuggestions = async (
 ): Promise<Card[]> => {
     const url =
         process.env.REACT_APP_LINKING_APP_URL +
-        "/api/users/suggestions?id={username}";
+        "/api/users/suggestions?id=" +
+        { username };
 
     const createAxios = axios.create({
         timeout: 3000,

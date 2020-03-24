@@ -8,9 +8,9 @@ import { Login } from "../../core/multicomponents/login/Login";
 import { Logout } from "../../core/multicomponents/logout/Logout";
 import { User } from "../../domain/User";
 import { Profile } from "../../core/multicomponents/profile/Profile";
-import { apiSignup } from "../../infraestructure/profile/signup";
-import { apiLogin, apiLogout } from "../../infraestructure/auth/login";
-import { apiModify } from "../../infraestructure/profile/modify";
+import { apiSignup } from "../../infrastructure/profile/signup";
+import { apiLogin, apiLogout } from "../../infrastructure/auth/login";
+import { apiModify } from "../../infrastructure/profile/modify";
 
 const cx = bind(styles);
 

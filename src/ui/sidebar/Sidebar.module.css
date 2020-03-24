@@ -1,3 +1,7 @@
+.sidebar {
+    min-height: var(--sidebar-height-size);
+}
+
 .sidebar__item {
     display: flex;
     flex-direction: row;

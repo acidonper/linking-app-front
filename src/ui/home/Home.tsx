@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { bind } from "../../utils/bind";
 import styles from "./Home.module.css";
@@ -6,18 +6,13 @@ import { Header } from "../header/Header";
 import { Footer } from "../footer/Footer";
 import { Sidebar } from "../sidebar/Sidebar";
 import { Pick } from "../pick/Pick";
+import { Live } from "../live/Live";
 
 const cx = bind(styles);
 
 interface Props {}
 
 export const Home: React.FunctionComponent<Props> = () => {
-    const [display, setDisplay] = useState("pick");
-
-    const changeHomeDisplay = (homeDisplay: string): void => {
-        setDisplay(homeDisplay);
-    };
-
     return (
         <>
             <Header type="regular"></Header>
@@ -31,7 +26,7 @@ export const Home: React.FunctionComponent<Props> = () => {
                             <Pick></Pick>
                         </Route>
                         <Route path="/home/live">
-                            <h1>Live</h1>
+                            <Live></Live>
                         </Route>
                         <Route path="/home/chat">
                             <h1>Chat</h1>
