@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { bind } from "../../../utils/bind";
 import styles from "./Profile.module.css";
 import { Button } from "../../components/button/Button";
@@ -16,15 +16,29 @@ interface Props {
     text: string;
     close(): void;
     submit(inputUser: User): void;
+    type: "singup" | "profile";
+    syncSettings(): any;
 }
 
 export const Profile: React.FunctionComponent<Props> = ({
     title,
     text,
     close,
-    submit
+    submit,
+    type,
+    syncSettings
 }) => {
     let user: User = {} as any;
+
+    const syncUserProfileSettings = async () => {
+        const userProfileSettings = await syncSettings();
+        console.log(userProfileSettings);
+        setInputUser(userProfileSettings);
+    };
+
+    useEffect(() => {
+        if (type === "profile") syncUserProfileSettings();
+    }, []);
 
     const [inputUser, setInputUser] = useState(user);
 

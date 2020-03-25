@@ -11,6 +11,7 @@ import { Profile } from "../../core/multicomponents/profile/Profile";
 import { apiSignup } from "../../infrastructure/profile/signup";
 import { apiLogin, apiLogout } from "../../infrastructure/auth/login";
 import { apiModify } from "../../infrastructure/profile/modify";
+import { apiGetProfileSettings } from "../../infrastructure/profile/obtain";
 
 const cx = bind(styles);
 
@@ -45,7 +46,8 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
     };
 
     const submitProfile = async (inputUser: User) => {
-        const newuser = await apiModify(inputUser);
+        const token: string = localStorage.getItem("token") + "";
+        const newuser = await apiModify(token, inputUser);
         if (typeof newuser !== "string") {
             return newuser;
         } else {
@@ -60,6 +62,12 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
 
     const submitLogout = () => {
         apiLogout();
+    };
+
+    const syncProfileSetting = async () => {
+        const token: string = localStorage.getItem("token") + "";
+        const userProfileSettings = await apiGetProfileSettings(token);
+        return userProfileSettings;
     };
 
     if (type === "welcome") {
@@ -114,6 +122,8 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                                 text="Register"
                                 close={showSignup}
                                 submit={submitSingup}
+                                type="singup"
+                                syncSettings={syncProfileSetting}
                             ></Profile>
                         </div>
                     </div>
@@ -155,6 +165,8 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                                 text="Save Changes"
                                 close={showProfile}
                                 submit={submitProfile}
+                                type="profile"
+                                syncSettings={syncProfileSetting}
                             ></Profile>
                         </div>
                     </div>

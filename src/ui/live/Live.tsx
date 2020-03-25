@@ -3,6 +3,7 @@ import { bind } from "../../utils/bind";
 import styles from "./Live.module.css";
 import { Card } from "../../domain/Card";
 import { apiGetMatches } from "../../infrastructure/suggestion/matches";
+import { apiUnmatch } from "../../infrastructure/suggestion/unmatch";
 import { Icon } from "../../core/components/icon/Icon";
 
 const cx = bind(styles);
@@ -29,11 +30,17 @@ export const Live: React.FunctionComponent<Props> = children => {
         loadMatches();
     }, []);
 
-    const submitDiscardMatch = (username: string, index: number) => {
-        const newCards = [...cards];
-        newCards.splice(index, 1);
-        setCards(newCards);
-        console.log(username, index);
+    const submitDiscardMatch = async (suggestion: string, index: number) => {
+        const token: string = localStorage.getItem("token") + "";
+        const username: string = localStorage.getItem("username") + "";
+        const suggestionUnmatch = await apiUnmatch(token, username, suggestion);
+        if (typeof suggestionUnmatch === "string") {
+            const newCards = [...cards];
+            newCards.splice(index, 1);
+            setCards(newCards);
+        } else {
+            alert("Error: Operation could not be completed. Please try again");
+        }
     };
 
     if (cards.length >= 1 && cards[0].username) {

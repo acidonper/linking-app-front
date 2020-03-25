@@ -8,7 +8,7 @@ export const apiUnmatch = async (
     const url =
         process.env.REACT_APP_LINKING_APP_URL +
         "/api/users/matches?id=" +
-        { username };
+        username;
 
     const body = {
         suggestionID: suggestion

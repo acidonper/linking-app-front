@@ -47,7 +47,6 @@ export const Pick: React.FunctionComponent<Props> = children => {
         } else {
             alert("Error: Operation could not be completed. Please try again");
         }
-        console.log(belovedAdded);
     };
 
     if (cards.length >= 1 && cards[0].username) {
