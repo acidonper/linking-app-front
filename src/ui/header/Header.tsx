@@ -3,15 +3,12 @@ import { bind } from "../../utils/bind";
 import styles from "./Header.module.css";
 import { Button } from "../../core/components/button/Button";
 import { Logo } from "../../core/components/logo/Logo";
-import { Icon } from "../../core/components/icon/Icon";
-import { Login } from "../../core/multicomponents/login/Login";
-import { Logout } from "../../core/multicomponents/logout/Logout";
+import { Login } from "../login/Login";
+import { Logout } from "../logout/Logout";
 import { User } from "../../domain/User";
-import { Profile } from "../../core/multicomponents/profile/Profile";
+import { Signup } from "../signup/Signup";
 import { apiSignup } from "../../infrastructure/profile/signup";
 import { apiLogin, apiLogout } from "../../infrastructure/auth/login";
-import { apiModify } from "../../infrastructure/profile/modify";
-import { apiGetProfileSettings } from "../../infrastructure/profile/obtain";
 
 const cx = bind(styles);
 
@@ -22,7 +19,6 @@ interface Props {
 export const Header: React.FunctionComponent<Props> = ({ type }) => {
     const [signup, setSignup] = useState(false);
     const [signin, setSignin] = useState(false);
-    const [profile, setProfile] = useState(false);
 
     const showSignup = () => {
         setSignup(!signup);
@@ -32,22 +28,8 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
         setSignin(!signin);
     };
 
-    const showProfile = () => {
-        setProfile(!profile);
-    };
-
-    const submitSingup = async (inputUser: User) => {
+    const submitSignup = async (inputUser: User) => {
         const newuser = await apiSignup(inputUser);
-        if (typeof newuser !== "string") {
-            return newuser;
-        } else {
-            return newuser;
-        }
-    };
-
-    const submitProfile = async (inputUser: User) => {
-        const token: string = localStorage.getItem("token") + "";
-        const newuser = await apiModify(token, inputUser);
         if (typeof newuser !== "string") {
             return newuser;
         } else {
@@ -62,12 +44,6 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
 
     const submitLogout = () => {
         apiLogout();
-    };
-
-    const syncProfileSetting = async () => {
-        const token: string = localStorage.getItem("token") + "";
-        const userProfileSettings = await apiGetProfileSettings(token);
-        return userProfileSettings;
     };
 
     if (type === "welcome") {
@@ -117,14 +93,12 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                 {signup ? (
                     <div className={cx("popup")}>
                         <div className={cx("popup__form")}>
-                            <Profile
+                            <Signup
                                 title="Linking App Registration"
                                 text="Register"
                                 close={showSignup}
-                                submit={submitSingup}
-                                type="singup"
-                                syncSettings={syncProfileSetting}
-                            ></Profile>
+                                submit={submitSignup}
+                            ></Signup>
                         </div>
                     </div>
                 ) : null}
@@ -139,14 +113,6 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                         <Logo size="m"></Logo>
                         <h1>Linking</h1>
                     </div>
-                    <div className={cx("regular__profile")}>
-                        <Icon
-                            size="m"
-                            library="material-icons"
-                            type="people"
-                            onClick={showProfile}
-                        ></Icon>
-                    </div>
                     <div className={cx("regular__logout")}>
                         <Logout
                             theme="header"
@@ -156,21 +122,6 @@ export const Header: React.FunctionComponent<Props> = ({ type }) => {
                         ></Logout>
                     </div>
                 </header>
-
-                {profile ? (
-                    <div className={cx("popup")}>
-                        <div className={cx("popup__form")}>
-                            <Profile
-                                title="Linking App Profile"
-                                text="Save Changes"
-                                close={showProfile}
-                                submit={submitProfile}
-                                type="profile"
-                                syncSettings={syncProfileSetting}
-                            ></Profile>
-                        </div>
-                    </div>
-                ) : null}
             </>
         );
     }

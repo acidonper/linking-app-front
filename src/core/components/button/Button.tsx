@@ -14,7 +14,6 @@ interface Props {
 export const Button: React.FunctionComponent<Props> = ({
     theme,
     text,
-    // children,
     onClick,
     submit
 }) => {

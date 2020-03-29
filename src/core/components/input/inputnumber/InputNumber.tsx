@@ -31,6 +31,7 @@ export const InputNumber: React.FunctionComponent<Props> = ({
             required={required}
             min={min}
             max={max}
+            id={label}
         />
     );
 };

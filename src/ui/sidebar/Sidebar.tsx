@@ -36,6 +36,22 @@ export const Sidebar: React.FunctionComponent<{}> = children => {
                     ></Icon>
                     <Link to={`${url}/chat`}>Chat</Link>
                 </div>
+                <div className={cx("sidebar__item")}>
+                    <Icon
+                        size="s"
+                        library="material-icons"
+                        type="people"
+                    ></Icon>
+                    <Link to={`${url}/profile`}>Profile</Link>
+                </div>
+                <div className={cx("sidebar__item")}>
+                    <Icon
+                        size="s"
+                        library="material-icons"
+                        type="monochrome_photos"
+                    ></Icon>
+                    <Link to={`${url}/photos`}>Photos</Link>
+                </div>
             </div>
         </>
     );

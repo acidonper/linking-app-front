@@ -10,6 +10,7 @@ interface Props {
     label: string;
     onChange(data: string | number): void;
     required?: boolean;
+    state?: string;
 }
 
 export const InputText: React.FunctionComponent<Props> = ({
@@ -17,16 +18,31 @@ export const InputText: React.FunctionComponent<Props> = ({
     value,
     label,
     onChange,
-    required
+    required,
+    state
 }) => {
     return (
-        <input
-            type={type}
-            placeholder={label}
-            className={cx("input")}
-            value={value}
-            onChange={event => onChange(event.target.value)}
-            required={required}
-        />
+        <>
+            {state ? (
+                <input
+                    type={type}
+                    placeholder={label}
+                    className={cx("input")}
+                    value={value}
+                    onChange={event => onChange(event.target.value)}
+                    required={required}
+                    disabled
+                />
+            ) : (
+                <input
+                    type={type}
+                    placeholder={label}
+                    className={cx("input")}
+                    value={value}
+                    onChange={event => onChange(event.target.value)}
+                    required={required}
+                />
+            )}
+        </>
     );
 };

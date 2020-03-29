@@ -7,3 +7,10 @@ body {
     font-size: var(--body-size);
     background-color: var(--surface-color);
 }
+input {
+    font-family: var(--body-font);
+}
+
+select {
+    font-family: var(--body-font);
+}

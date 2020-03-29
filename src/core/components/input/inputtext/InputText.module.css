@@ -5,3 +5,8 @@
     margin: var(--m);
     padding-bottom: var(--xs) var(--s) var(--xs) var(--s);
 }
+
+.input:disabled {
+    color: var(--on-surface-footer-color);
+    background-color: var(--on-primary-color);
+}

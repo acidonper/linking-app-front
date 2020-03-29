@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { bind } from "../../../utils/bind";
+import { bind } from "../../utils/bind";
 import styles from "./Login.module.css";
-import { Button } from "../../components/button/Button";
-import { InputText } from "../../components/input/inputtext/InputText";
-import { InputPass } from "../../components/input/inputpassword/InputPass";
+import { Button } from "../../core/components/button/Button";
+import { InputText } from "../../core/components/input/inputtext/InputText";
+import { InputPass } from "../../core/components/input/inputpassword/InputPass";
 
 const cx = bind(styles);
 

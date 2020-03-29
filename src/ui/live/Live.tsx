@@ -108,7 +108,7 @@ export const Live: React.FunctionComponent<Props> = children => {
             <>
                 <div className={cx("message")}>
                     <h1 className={cx("message__title")}>
-                        Matches is comming soon!
+                        Matches is coming soon!
                     </h1>
                     <h1>Give Live a Chance!</h1>
                     <h1>Go to Pick...</h1>

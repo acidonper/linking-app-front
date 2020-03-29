@@ -10,6 +10,8 @@
 
     --body-size: 22px;
 
+    --title-size-xs: 10px;
+    --title-size-s: 15px;
     --title-size-m: 20px;
     --title-size-m: 30px;
     --title-size-l: 35px;
@@ -59,6 +61,9 @@
     --image-m: 40px;
     --image-s: 25px;
     --image-xs: 10px;
+
+    --input-text-m-width: 150px;
+    --input-text-m-height: 30px;
 
     --card-xxl: 400px;
     --card-xl: 300px;

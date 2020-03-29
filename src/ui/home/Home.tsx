@@ -7,6 +7,8 @@ import { Footer } from "../footer/Footer";
 import { Sidebar } from "../sidebar/Sidebar";
 import { Pick } from "../pick/Pick";
 import { Live } from "../live/Live";
+import { Settings } from "../settings/Settings";
+import { Photos } from "../photos/Photos";
 
 const cx = bind(styles);
 
@@ -30,6 +32,12 @@ export const Home: React.FunctionComponent<Props> = () => {
                         </Route>
                         <Route path="/home/chat">
                             <h1>Chat</h1>
+                        </Route>
+                        <Route path="/home/profile">
+                            <Settings></Settings>
+                        </Route>
+                        <Route path="/home/photos">
+                            <Photos></Photos>
                         </Route>
                     </Switch>
                 </div>

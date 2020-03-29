@@ -104,6 +104,16 @@ export const Pick: React.FunctionComponent<Props> = children => {
             </>
         );
     } else {
-        return <></>;
+        return (
+            <>
+                <div className={cx("message")}>
+                    <h1 className={cx("message__title")}>
+                        Suggestions to pick are coming soon!
+                    </h1>
+                    <h1>Give Live a Chance or ...</h1>
+                    <h1>... modify your preferences!</h1>
+                </div>
+            </>
+        );
     }
 };

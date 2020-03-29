@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Button } from "../../components/button/Button";
+import { Button } from "../../core/components/button/Button";
 
 interface Props {
     theme: "header" | "form" | "regular";

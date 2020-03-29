@@ -50,3 +50,12 @@
     justify-content: space-around;
     padding-bottom: var(--m);
 }
+
+.message h1 {
+    margin: var(--m);
+}
+
+.message__title {
+    margin: var(--m);
+    font-weight: bold;
+}

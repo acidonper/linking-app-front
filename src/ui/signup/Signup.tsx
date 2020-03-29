@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { bind } from "../../../utils/bind";
-import styles from "./Profile.module.css";
-import { Button } from "../../components/button/Button";
-import { InputText } from "../../components/input/inputtext/InputText";
-import { InputPass } from "../../components/input/inputpassword/InputPass";
-import { InputRadio } from "../../components/input/inputradio/InputRadio";
-import { InputNumber } from "../../components/input/inputnumber/InputNumber";
-import { User } from "../../../domain/User";
-import { cities } from "../../../domain/Cities";
+import { bind } from "../../utils/bind";
+import styles from "./Signup.module.css";
+import { Button } from "../../core/components/button/Button";
+import { InputText } from "../../core/components/input/inputtext/InputText";
+import { InputPass } from "../../core/components/input/inputpassword/InputPass";
+import { InputRadio } from "../../core/components/input/inputradio/InputRadio";
+import { InputNumber } from "../../core/components/input/inputnumber/InputNumber";
+import { InputSelect } from "../../core/components/input/inputselect/InputSelect";
+import { User } from "../../domain/User";
+import { cities } from "../../domain/Cities";
 
 const cx = bind(styles);
 
@@ -16,29 +17,15 @@ interface Props {
     text: string;
     close(): void;
     submit(inputUser: User): void;
-    type: "singup" | "profile";
-    syncSettings(): any;
 }
 
-export const Profile: React.FunctionComponent<Props> = ({
+export const Signup: React.FunctionComponent<Props> = ({
     title,
     text,
     close,
-    submit,
-    type,
-    syncSettings
+    submit
 }) => {
     let user: User = {} as any;
-
-    const syncUserProfileSettings = async () => {
-        const userProfileSettings = await syncSettings();
-        console.log(userProfileSettings);
-        setInputUser(userProfileSettings);
-    };
-
-    useEffect(() => {
-        if (type === "profile") syncUserProfileSettings();
-    }, []);
 
     const [inputUser, setInputUser] = useState(user);
 
@@ -172,7 +159,7 @@ export const Profile: React.FunctionComponent<Props> = ({
                                 })
                             }
                         ></InputRadio>
-                        <InputRadio
+                        <InputSelect
                             name={"City"}
                             labels={cities}
                             onChange={(data: User["infoCity"]) =>
@@ -181,7 +168,7 @@ export const Profile: React.FunctionComponent<Props> = ({
                                     infoCity: data
                                 })
                             }
-                        ></InputRadio>
+                        ></InputSelect>
                         <InputRadio
                             name={"Kids Lover"}
                             labels={[true, false]}
