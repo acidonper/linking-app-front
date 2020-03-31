@@ -11,6 +11,9 @@ export const PublicRoutes: React.FunctionComponent<{}> = ({}) => {
             </Route>
             <Route path="/welcome" component={Welcome} />
             <Route path="/home" component={Home} />
+            <Route path="*" exact={true}>
+                <h1>404 Not FOUND</h1>
+            </Route>
         </>
     );
 };
