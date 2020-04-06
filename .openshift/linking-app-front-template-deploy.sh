@@ -23,7 +23,7 @@ SERVICE_NAME="linking-app-front"
 SERVICE_GIT_URL="https://github.com/acidonper/linking-app-front.git"
 SERVICE_GIT_USER=$2
 SERVICE_GIT_PASSWORD=$3
-BACK_SERVICE="http://linking-app-back:5000"
+BACK_SERVICE="http://linking-app-back-pepe.apps-crc.testing/"
 
 
 

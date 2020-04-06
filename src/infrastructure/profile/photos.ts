@@ -38,3 +38,21 @@ export const apiDeletePhoto = async (
         return error;
     }
 };
+
+export const apiUploadPhoto = async (
+    token: string,
+    photo: FormData
+): Promise<string[]> => {
+    const createAxios = axios.create({
+        timeout: 3000,
+        headers: { Authorization: "Bearer " + token }
+    });
+
+    try {
+        const response = await createAxios.post(url, photo);
+        const responsePhotos = response.data;
+        return responsePhotos.userPhotos.photos;
+    } catch (error) {
+        return error;
+    }
+};

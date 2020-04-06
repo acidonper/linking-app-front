@@ -4,8 +4,10 @@ import styles from "./Photos.module.css";
 import { Icon } from "../../core/components/icon/Icon";
 import {
     apiGetPhotos,
-    apiDeletePhoto
+    apiDeletePhoto,
+    apiUploadPhoto
 } from "../../infrastructure/profile/photos";
+import { InputFile } from "../../core/components/input/inputfile/InputFile";
 
 const cx = bind(styles);
 
@@ -40,8 +42,23 @@ export const Photos: React.FunctionComponent<Props> = ({}) => {
         }
     };
 
-    const submitAddPhoto = () => {
-        alert("VAMOSSSSSSS");
+    const submitAddPhoto = async (photoFile: string) => {
+        console.log(photoFile);
+
+        const photoData = new FormData();
+        photoData.append("photo", photoFile, "pepe.jpg");
+
+        const token: string = localStorage.getItem("token") + "";
+        const response = await apiUploadPhoto(token, photoData);
+
+        if (Array.isArray(response)) {
+            setTimeout(() => {
+                alert("OK: A new photo has been added!!");
+                setUserPhotos(response);
+            }, 300);
+        } else {
+            alert("Error: Operation could not be completed. Please try again");
+        }
     };
 
     return (
@@ -55,12 +72,20 @@ export const Photos: React.FunctionComponent<Props> = ({}) => {
                     />
                 ))}
                 <div className={cx("container__card")}>
-                    <Icon
-                        size="l"
-                        library="material-icons"
-                        type="add_a_photo"
-                        onClick={() => submitAddPhoto()}
-                    ></Icon>
+                    <InputFile
+                        label="inputfile"
+                        onChange={(data: string) => {
+                            submitAddPhoto(data);
+                        }}
+                        content={
+                            <Icon
+                                size="l"
+                                library="material-icons"
+                                type="add_a_photo"
+                                onClick={() => {}}
+                            ></Icon>
+                        }
+                    ></InputFile>
                 </div>
             </div>
         </>
