@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  padding: var(--l);
+  flex-wrap: wrap;
+  color: var(--on-surface-color);
+}
+
+.container__messages {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+}
+
+.container__conversations {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--on-surface-color);
+}
+
+.message h1 {
+  margin: var(--m);
+}
+
+.message__title {
+  margin: var(--m);
+  font-weight: bold;
+}
