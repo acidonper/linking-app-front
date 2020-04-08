@@ -4,25 +4,25 @@ import { isAuthenticated } from "../infrastructure/auth/login";
 import { Home } from "../ui/home/Home";
 
 export const PrivateRoutes: React.FunctionComponent<{}> = ({
-    children,
-    ...rest
+  children,
+  ...rest
 }) => {
-    return (
-        <Route
-            path="/base"
-            {...rest}
-            render={({ location }) =>
-                isAuthenticated() ? (
-                    <Home />
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/",
-                            state: { from: location }
-                        }}
-                    />
-                )
-            }
-        />
-    );
+  return (
+    <Route
+      path="/base"
+      {...rest}
+      render={({ location }) =>
+        isAuthenticated() ? (
+          <Home />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
 };

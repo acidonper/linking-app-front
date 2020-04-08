@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { bind } from "../../utils/bind";
 import styles from "./Conversation.module.css";
-import { joinChat, messageChat } from "../../utils/chat";
+import { joinChat, messageChat } from "../../infrastructure/chat/chat";
 import { InputText } from "../../core/components/input/inputtext/InputText";
+import { Button } from "../../core/components/button/Button";
 
 const cx = bind(styles);
 
 interface Props {
   socket: SocketIOClient.Socket;
-  room: string;
+  matchUsername: string;
+  matchPhoto: string;
 }
 
 export const Conversation: React.FunctionComponent<Props> = ({
   socket,
-  room,
+  matchUsername,
+  matchPhoto,
 }) => {
   const [message, setMessage] = useState("");
   const [chatMessages, setChatMessages] = useState([""]);
-  const [privateRoom, setPrivateRoom] = useState(room);
+  const [privateRoom, setPrivateRoom] = useState(matchUsername);
 
   const myUsername: string = localStorage.getItem("username") + "";
 
@@ -34,11 +37,11 @@ export const Conversation: React.FunctionComponent<Props> = ({
 
   useEffect(() => {
     let newRoom;
-    if (myUsername > room) {
-      newRoom = myUsername + room;
+    if (myUsername > matchUsername) {
+      newRoom = myUsername + matchUsername;
       setPrivateRoom(newRoom);
     } else {
-      newRoom = room + myUsername;
+      newRoom = matchUsername + myUsername;
       setPrivateRoom(newRoom);
     }
     joinChat(socket, newRoom, myUsername);
@@ -47,7 +50,7 @@ export const Conversation: React.FunctionComponent<Props> = ({
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const myMessage = `${myUsername}: ${message}`;
-    messageChat(socket, privateRoom, myMessage);
+    messageChat(socket, privateRoom, myMessage, myUsername);
     setMessage("");
     return false;
   };
@@ -55,22 +58,32 @@ export const Conversation: React.FunctionComponent<Props> = ({
   return (
     <>
       <div className={cx("container")}>
-        <h1>{privateRoom}</h1>
-        <ul>
-          {chatMessages.map((name, index) => (
-            <li key={index}>{name}</li>
-          ))}
-        </ul>
-        <form onSubmit={handleSubmit}>
-          <InputText
-            onChange={(data: string) => setMessage(data)}
-            label="Message"
-            value={message}
-            required={true}
-            type="text"
-          />
-          <button type="submit">Sent it!</button>
-        </form>
+        <div className={cx("container__title")}>
+          <div className={cx("container__title__image")}>
+            <img src={matchPhoto} alt={matchUsername} />
+          </div>
+          <h1>{matchUsername}</h1>
+        </div>
+        <div className={cx("container__messages")}>
+          <ul>
+            {chatMessages.map((name, index) => (
+              <li key={index}>{name}</li>
+            ))}
+          </ul>
+          <div className={cx("container__messages__dummy")} id="dummy"></div>
+        </div>
+        <div className={cx("container__send")}>
+          <form onSubmit={handleSubmit}>
+            <InputText
+              onChange={(data: string) => setMessage(data)}
+              label="Message"
+              value={message}
+              required={true}
+              type="text"
+            />
+            <Button submit theme="header" text="Send"></Button>
+          </form>
+        </div>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-.regular {
+.welcome {
   display: flex;
   background: var(--primary-color);
   color: var(--on-primary-color);
@@ -6,28 +6,30 @@
   border: none;
 }
 
-.regular__logo {
-  padding: var(--m);
+.welcome__center {
+  flex: 1;
+  text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: var(--xl);
   align-items: center;
 }
 
-.regular__logo h1 {
-  margin-left: var(--m);
-  font-weight: bold;
+.welcome__logo {
+  padding: var(--l) var(--xl);
 }
 
-.regular__profile {
-  flex: 1;
-  text-align: right;
-  vertical-align: middle;
-  padding: var(--m);
+.welcome__center__text {
+  margin-bottom: var(--l);
 }
 
-.regular__logout {
-  padding: var(--m) var(--xl) var(--m) var(--l);
-  margin-left: auto;
+.welcome__center__text h1 {
+  margin: 0px 0px var(--l) 0px;
+  font-size: var(--title-front-size);
+}
+
+.welcome__login {
+  padding: var(--l) var(--xl) var(--xl);
 }
 
 .popup {

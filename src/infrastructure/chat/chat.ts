@@ -1,7 +1,11 @@
 import socketIOClient from "socket.io-client";
 
-export const connectChat = () => {
-  const socket = socketIOClient.connect("http://127.0.0.1:5002/tech");
+export const connectChat = (username: string) => {
+  const url: string = process.env.REACT_APP_LINKING_APP_CHAT_URL + "";
+
+  const socket = socketIOClient.connect(url, {
+    query: `username=${username}`,
+  });
   return socket;
 };
 
@@ -17,9 +21,10 @@ export const joinChat = (
 export const messageChat = (
   socket: SocketIOClient.Socket,
   room: string,
-  message: string
+  message: string,
+  username: string
 ) => {
-  socket.emit("message", { msg: message, room: room });
+  socket.emit("message", { msg: message, room: room, username: username });
   return true;
 };
 
@@ -32,7 +37,7 @@ export const leaveChat = (
   return true;
 };
 
-export const disconnectChat = () => {
-  const socket = socketIOClient.connect("http://127.0.0.1:5002/tech");
-  return socket;
+export const disconnectChat = (socket: SocketIOClient.Socket) => {
+  socket.close();
+  return true;
 };

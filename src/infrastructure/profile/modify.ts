@@ -4,25 +4,25 @@ import { User as UserProfile } from "./profile-dto";
 import { UserToProfileDtoMapper } from "./mapper-user-to-profile-dto";
 
 export const apiModify = async (token: string, userModified: User) => {
-    //
-    // TODO - Implenent and use profile modification backends and sent TOKEN
-    //
+  //
+  // TODO - Implenent and use profile modification backends and sent TOKEN
+  //
 
-    const url = process.env.REACT_APP_LINKING_APP_URL + "/api/users/profile";
+  const url = process.env.REACT_APP_LINKING_APP_BACK_URL + "/api/users/profile";
 
-    const createAxios = axios.create({
-        timeout: 3000,
-        headers: { Authorization: "Bearer " + token }
-    });
+  const createAxios = axios.create({
+    timeout: 3000,
+    headers: { Authorization: "Bearer " + token },
+  });
 
-    const data = new UserToProfileDtoMapper();
+  const data = new UserToProfileDtoMapper();
 
-    const datadto: UserProfile = data.map(userModified);
+  const datadto: UserProfile = data.map(userModified);
 
-    try {
-        const response = await createAxios.post(url, datadto);
-        return response.data.message;
-    } catch (error) {
-        return error;
-    }
+  try {
+    const response = await createAxios.post(url, datadto);
+    return response.data.message;
+  } catch (error) {
+    return error;
+  }
 };

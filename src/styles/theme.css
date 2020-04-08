@@ -1,82 +1,85 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa");
 
 :root {
-    --xs: 0.25rem;
-    --s: 0.5rem;
-    --m: 1rem;
-    --l: 2rem;
-    --xl: 4rem;
-    --xxl: 8rem;
+  --xs: 0.25rem;
+  --s: 0.5rem;
+  --m: 1rem;
+  --l: 2rem;
+  --xl: 4rem;
+  --xxl: 8rem;
 
-    --body-size: 22px;
+  --body-size: 22px;
 
-    --title-size-xs: 10px;
-    --title-size-s: 15px;
-    --title-size-m: 20px;
-    --title-size-m: 30px;
-    --title-size-l: 35px;
+  --title-size-xs: 10px;
+  --title-size-s: 15px;
+  --title-size-m: 20px;
+  --title-size-m: 30px;
+  --title-size-l: 35px;
 
-    --title-front-size: 135px;
+  --title-front-size: 135px;
 
-    --body-font: Comfortaa;
-    --title-font: Comfortaa;
+  --body-font: Comfortaa;
+  --title-font: Comfortaa;
 
-    --primary-color: #f4ccccff;
-    --on-primary-color: white;
-    --cover-primary-color: white;
+  --primary-color: #f4ccccff;
+  --on-primary-color: white;
+  --cover-primary-color: white;
 
-    --secondary-color: #ea9999ff;
-    --on-secondary-color: white;
-    --cover-secondary-color: #e06666ff;
+  --secondary-color: #ea9999ff;
+  --on-secondary-color: white;
+  --cover-secondary-color: #e06666ff;
 
-    --surface-color: white;
-    --on-surface-color: #434343;
-    --on-surface-footer-color: #939090;
+  --surface-color: white;
+  --on-surface-color: #434343;
+  --on-surface-footer-color: #939090;
 
-    --sidebar-color: #e8aeb3;
-    --on-sidebar-color: white;
-    --sidebar-height-size: 600px;
+  --sidebar-color: #e8aeb3;
+  --on-sidebar-color: white;
+  --sidebar-height-size: 600px;
 
-    --logo-xxl: 150px;
-    --logo-xl: 125px;
-    --logo-l: 100px;
-    --logo-m: 40px;
-    --logo-s: 25px;
-    --logo-xs: 10px;
+  --chat-background-color: #fcf2f2;
+  --on-chat-background-color: #434343;
 
-    --icon-xxl: 150px;
-    --icon-xl: 125px;
-    --icon-l: 100px;
-    --icon-m: 40px;
-    --icon-s: 25px;
-    --icon-xs: 10px;
+  --logo-xxl: 150px;
+  --logo-xl: 125px;
+  --logo-l: 100px;
+  --logo-m: 40px;
+  --logo-s: 25px;
+  --logo-xs: 10px;
 
-    --image-xxl: 350px;
-    --image-xl: 200px;
-    --image-xl-horizontal-width: 400px;
-    --image-xl-horizontal-height: 215px;
-    --image-xl-vertical-width: 300px;
-    --image-xl-vertical-height: 375px;
-    --image-l: 100px;
-    --image-m: 40px;
-    --image-s: 25px;
-    --image-xs: 10px;
+  --icon-xxl: 150px;
+  --icon-xl: 125px;
+  --icon-l: 100px;
+  --icon-m: 40px;
+  --icon-s: 25px;
+  --icon-xs: 10px;
 
-    --input-text-m-width: 150px;
-    --input-text-m-height: 30px;
+  --image-xl-horizontal-width: 400px;
+  --image-xl-horizontal-height: 215px;
+  --image-xl-vertical-width: 300px;
+  --image-xl-vertical-height: 375px;
+  --image-xxl: 250px;
+  --image-xl: 100px;
+  --image-l: 60px;
+  --image-m: 40px;
+  --image-s: 25px;
+  --image-xs: 10px;
 
-    --card-xxl: 400px;
-    --card-xl: 300px;
-    --card-l: 150px;
-    --card-m: 100px;
-    --card-s: 50px;
-    --card-xs: 30px;
+  --input-text-m-width: 150px;
+  --input-text-m-height: 30px;
 
-    --icon-text-size-xl: 30px;
-    --icon-text-size-l: 15px;
+  --card-xxl: 400px;
+  --card-xl: 300px;
+  --card-l: 150px;
+  --card-m: 100px;
+  --card-s: 50px;
+  --card-xs: 30px;
 
-    --radio-size-xl: 300px;
-    --radio-size-l: 200px;
-    --radio-size-m: 114px;
-    --radio-size-s: 50px;
+  --icon-text-size-xl: 30px;
+  --icon-text-size-l: 15px;
+
+  --radio-size-xl: 300px;
+  --radio-size-l: 200px;
+  --radio-size-m: 114px;
+  --radio-size-s: 50px;
 }

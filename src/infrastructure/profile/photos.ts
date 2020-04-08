@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = process.env.REACT_APP_LINKING_APP_URL + "/api/users/photos";
+const url = process.env.REACT_APP_LINKING_APP_BACK_URL + "/api/users/photos";
 
 export const apiGetPhotos = async (token: string): Promise<string[]> => {
   const createAxios = axios.create({

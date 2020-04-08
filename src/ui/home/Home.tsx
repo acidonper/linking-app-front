@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import { bind } from "../../utils/bind";
 import styles from "./Home.module.css";
@@ -10,15 +10,24 @@ import { Live } from "../live/Live";
 import { Settings } from "../settings/Settings";
 import { Photos } from "../photos/Photos";
 import { Chat } from "../chat/Chat";
+import { connectChat } from "../../infrastructure/chat/chat";
 
 const cx = bind(styles);
 
 interface Props {}
 
 export const Home: React.FunctionComponent<Props> = () => {
+  const initSocket: SocketIOClient.Socket = {} as any;
+  const [socket, setSocket] = useState(initSocket);
+
+  useEffect(() => {
+    const username: string = localStorage.getItem("username") + "";
+    setSocket(connectChat(username));
+  }, []);
+
   return (
     <>
-      <Header type="regular"></Header>
+      <Header socket={socket}></Header>
       <div className={cx("home")}>
         <div className={cx("sidebar")}>
           <Sidebar />
@@ -32,7 +41,7 @@ export const Home: React.FunctionComponent<Props> = () => {
               <Live></Live>
             </Route>
             <Route path="/home/chat">
-              <Chat></Chat>
+              <Chat socket={socket}></Chat>
             </Route>
             <Route path="/home/profile">
               <Settings></Settings>

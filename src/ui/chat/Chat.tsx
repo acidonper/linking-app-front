@@ -2,20 +2,17 @@ import React, { useState, useEffect } from "react";
 import { bind } from "../../utils/bind";
 import styles from "./Chat.module.css";
 import { Route, Link, useRouteMatch } from "react-router-dom";
-import { connectChat } from "../../utils/chat";
 import { Conversation } from "../conversation/Conversation";
 import { Card } from "../../domain/Card";
 import { apiGetMatches } from "../../infrastructure/suggestion/matches";
 
 const cx = bind(styles);
 
-const newSocket: SocketIOClient.Socket = connectChat();
+interface Props {
+  socket: SocketIOClient.Socket;
+}
 
-interface Props {}
-
-export const Chat: React.FunctionComponent<Props> = ({}) => {
-  const [activeUsers, setActiveUsers] = useState(["Pepe", "Manolo", "Jose"]);
-
+export const Chat: React.FunctionComponent<Props> = ({ socket }) => {
   let { url } = useRouteMatch();
 
   let initCards: Card[] = [{}] as any;
@@ -40,20 +37,30 @@ export const Chat: React.FunctionComponent<Props> = ({}) => {
     return (
       <>
         <div className={cx("container")}>
+          <div className={cx("container__conversations")}>
+            {cards.map((card, index) => (
+              <div className={cx("container__conversations__user")} key={index}>
+                <div className={cx("container__conversations__user__image")}>
+                  <img src={card.photos[0]} alt={card.username} />
+                </div>
+                <div className={cx("container__conversations__user__link")}>
+                  <Link to={`${url}/${card.username}`}>{card.username}</Link>
+                  <p>Clik to say hello...</p>
+                </div>
+              </div>
+            ))}
+          </div>
           <div className={cx("container__messages")}>
             {cards.map((card, index) => (
               <div key={index}>
                 <Route path={`${url}/${card.username}`}>
-                  <Conversation socket={newSocket} room={card.username} />
+                  <Conversation
+                    socket={socket}
+                    matchUsername={card.username}
+                    matchPhoto={card.photos[0]}
+                  />
                 </Route>
                 <h1></h1>
-              </div>
-            ))}
-          </div>
-          <div className={cx("container__conversations")}>
-            {cards.map((card, index) => (
-              <div key={index}>
-                <Link to={`${url}/${card.username}`}>{card.username}</Link>
               </div>
             ))}
           </div>

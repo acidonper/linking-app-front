@@ -1,7 +1,69 @@
 .container {
   display: flex;
   flex-direction: column;
+  background-color: var(--chat-background-color);
+}
+
+.container__title {
+  display: flex;
+  flex-direction: row;
+  padding: var(--m);
+}
+
+.container__title h1 {
+  margin: var(--m);
+}
+
+.container__title__image {
+  position: relative;
+  width: var(--image-l);
+  height: var(--image-l);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.container__title__image img {
+  width: 100%;
+  height: auto;
+}
+
+.container__messages {
+  flex: 9;
   padding: var(--l);
   flex-wrap: wrap;
+  color: var(--on-chat-background-color);
+  font-size: var(--title-size-s);
+  min-height: 50vh;
+  max-height: 50vh;
+  overflow: auto !important;
+}
+
+.container__messages__dummy {
+  float: left;
+  clear: both;
+}
+
+.container__messages li {
+  margin-top: var(--s);
+  margin-bottom: var(--s);
+}
+
+.container__send {
+  padding: var(--l);
+}
+
+.container__send form {
+  display: flex;
+  align-items: center;
+}
+
+.container__send form input {
+  width: 90%;
+  height: var(--l);
+  font-size: var(--title-size-s);
   color: var(--on-surface-color);
+}
+.container__send form button {
+  float: right;
+  height: 40px;
 }

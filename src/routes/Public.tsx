@@ -4,16 +4,13 @@ import { Welcome } from "../ui/welcome/Welcome";
 import { Home } from "../ui/home/Home";
 
 export const PublicRoutes: React.FunctionComponent<{}> = ({}) => {
-    return (
-        <>
-            <Route path="/" exact>
-                <Redirect to="/welcome" />
-            </Route>
-            <Route path="/welcome" component={Welcome} />
-            <Route path="/home" component={Home} />
-            <Route path="*" exact={true}>
-                <h1>404 Not FOUND</h1>
-            </Route>
-        </>
-    );
+  return (
+    <>
+      <Route path="/" exact>
+        <Redirect to="/welcome" />
+      </Route>
+      <Route path="/welcome" component={Welcome} />
+      <Route path="/home" component={Home} />
+    </>
+  );
 };

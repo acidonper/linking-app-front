@@ -11,6 +11,7 @@ interface Props {
     onChange(data: string | number): void;
     required?: boolean;
     state?: string;
+    fixed?: string
 }
 
 export const InputText: React.FunctionComponent<Props> = ({
