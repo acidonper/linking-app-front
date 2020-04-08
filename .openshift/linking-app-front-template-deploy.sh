@@ -24,8 +24,8 @@ SERVICE_NAME="linking-app-front"
 SERVICE_GIT_URL="https://github.com/acidonper/linking-app-front.git"
 SERVICE_GIT_USER=$2
 SERVICE_GIT_PASSWORD=$3
-BACK_SERVICE="https://linking-app-back-${PROJECT_NAME}.${DOMAIN}/"
-CHAT_SERVICE="https://linking-app-chat-${PROJECT_NAME}.${DOMAIN}/"
+BACK_SERVICE="https://linking-app-back-${PROJECT_NAME}.${DOMAIN}"
+CHAT_SERVICE="https://linking-app-chat-${PROJECT_NAME}.${DOMAIN}/tech"
 
 
 # Create a deployment config object charged with the container creation and inject environment variables 
