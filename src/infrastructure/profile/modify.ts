@@ -4,10 +4,6 @@ import { User as UserProfile } from "./profile-dto";
 import { UserToProfileDtoMapper } from "./mapper-user-to-profile-dto";
 
 export const apiModify = async (token: string, userModified: User) => {
-  //
-  // TODO - Implenent and use profile modification backends and sent TOKEN
-  //
-
   const url = process.env.REACT_APP_LINKING_APP_BACK_URL + "/api/users/profile";
 
   const createAxios = axios.create({

@@ -5,47 +5,42 @@ import styles from "./InputSelect.module.css";
 const cx = bind(styles);
 
 interface Props {
-    name: string;
-    labels: string[];
-    onChange(data: string | boolean): void;
-    defaultValue?: string;
+  name: string;
+  labels: string[];
+  onChange(data: string | boolean): void;
+  defaultValue?: string;
 }
 
 export const InputSelect: React.FunctionComponent<Props> = ({
-    name,
-    labels,
-    onChange,
-    defaultValue
+  name,
+  labels,
+  onChange,
+  defaultValue,
 }) => {
-    const [inputLabels, setInputLabels] = useState(labels);
+  const [inputLabels, setInputLabels] = useState(labels);
 
-    useEffect(() => {
-        if (defaultValue) {
-            const newLabels = labels.filter(item => item !== defaultValue);
-            setInputLabels(newLabels);
-        }
-    }, []);
+  useEffect(() => {
+    if (defaultValue) {
+      const newLabels = labels.filter((item) => item !== defaultValue);
+      setInputLabels(newLabels);
+    }
+  }, []);
 
-    return (
-        <div className={cx("select")}>
-            <p>{name}</p>
-            <select
-                id={name}
-                name={name}
-                onChange={event => onChange(event.target.value)}
-            >
-                {inputLabels.map(label => (
-                    <option id={label} value={label}>
-                        {label}
-                    </option>
-                ))}
-
-                {defaultValue ? (
-                    <option id={defaultValue} value={defaultValue} selected>
-                        {defaultValue}
-                    </option>
-                ) : null}
-            </select>
-        </div>
-    );
+  return (
+    <div className={cx("select")}>
+      <p>{name}</p>
+      <select
+        id={name}
+        name={name}
+        value={defaultValue}
+        onChange={(event) => onChange(event.target.value)}
+      >
+        {inputLabels.map((label) => (
+          <option id={label} value={label} key={label}>
+            {label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
 };

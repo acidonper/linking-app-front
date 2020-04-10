@@ -5,15 +5,17 @@ import styles from "./Logo.module.css";
 const cx = bind(styles);
 
 interface Props {
-    size?: "xs" | "s" | "m" | "l" | "xl" | "xxl";
+  size?: "xs" | "s" | "m" | "l" | "xl" | "xxl";
 }
 
 export const Logo: React.FunctionComponent<Props> = ({ size }) => {
-    return (
-        <>
-            <a href="/">
-                <i className={cx(size, "material-icons")}>close</i>
-            </a>
-        </>
-    );
+  return (
+    <>
+      <a href="/">
+        <i data-testid="Logo" className={cx(size, "material-icons")}>
+          close
+        </i>
+      </a>
+    </>
+  );
 };

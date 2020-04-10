@@ -7,7 +7,7 @@ export const apiSignup = async (user: User) => {
   const url =
     process.env.REACT_APP_LINKING_APP_BACK_URL + "/api/users/register";
 
-  user.photos = [""];
+  user.photos = ["http://www.example.com"];
   user.role = "user";
 
   const data = new UserToProfileDtoMapper();

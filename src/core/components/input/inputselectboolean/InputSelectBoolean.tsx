@@ -1,56 +1,60 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { bind } from "../../../../utils/bind";
 import styles from "./InputSelectBoolean.module.css";
 
 const cx = bind(styles);
 
 interface Props {
-    name: string;
-    onChange(data: string | boolean): void;
-    defaultValue: boolean;
+  name: string;
+  onChange(data: string | boolean): void;
+  defaultValue: boolean;
 }
 
 export const InputSelectBoolean: React.FunctionComponent<Props> = ({
-    name,
-    onChange,
-    defaultValue
+  name,
+  onChange,
+  defaultValue,
 }) => {
-    const HandleOnChange = (value: string) => {
-        if (value === "true") {
-            onChange(true);
-        } else {
-            onChange(false);
-        }
-    };
+  const HandleOnChange = (value: string) => {
+    if (value === "true") {
+      onChange(true);
+    } else {
+      onChange(false);
+    }
+  };
 
-    return (
-        <div className={cx("select")}>
-            <p>{name}</p>
-            <select
-                id={name}
-                name={name}
-                onChange={event => HandleOnChange(event.target.value)}
-            >
-                {defaultValue ? (
-                    <>
-                        <option id="true" value="true" selected>
-                            true
-                        </option>
-                        <option id="false" value="false">
-                            false
-                        </option>
-                    </>
-                ) : (
-                    <>
-                        <option id="true" value="true">
-                            true
-                        </option>
-                        <option id="false" value="false" selected>
-                            false
-                        </option>
-                    </>
-                )}
-            </select>
-        </div>
-    );
+  return (
+    <div className={cx("select")}>
+      <p>{name}</p>
+      {defaultValue ? (
+        <select
+          id={name}
+          name={name}
+          onChange={(event) => HandleOnChange(event.target.value)}
+          value="true"
+        >
+          <option id="true" value="true">
+            true
+          </option>
+          <option id="false" value="false">
+            false
+          </option>
+        </select>
+      ) : (
+        <select
+          id={name}
+          name={name}
+          onChange={(event) => HandleOnChange(event.target.value)}
+          value="false"
+        >
+          <option id="true" value="true">
+            true
+          </option>
+          <option id="false" value="false">
+            false
+          </option>
+        </select>
+      )}
+    </div>
+  );
 };
