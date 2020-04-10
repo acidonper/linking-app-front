@@ -5,6 +5,7 @@ export const connectChat = (username: string) => {
 
   const socket = socketIOClient.connect(url, {
     query: `username=${username}`,
+    timeout: 300000,
   });
   return socket;
 };
