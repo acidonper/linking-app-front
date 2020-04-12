@@ -43,7 +43,11 @@ export const Settings: React.FunctionComponent<Props> = ({}) => {
 
   return (
     <>
-      <form className={cx("container")} onSubmit={handleSubmit}>
+      <form
+        data-testid="form"
+        className={cx("container")}
+        onSubmit={handleSubmit}
+      >
         <div className={cx("container__main")}>
           <div className={cx("container__main__name")}>
             <InputText

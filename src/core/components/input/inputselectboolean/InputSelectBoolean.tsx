@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { bind } from "../../../../utils/bind";
 import styles from "./InputSelectBoolean.module.css";
 

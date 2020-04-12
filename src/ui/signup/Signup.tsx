@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { bind } from "../../utils/bind";
 import styles from "./Signup.module.css";
 import { Button } from "../../core/components/button/Button";

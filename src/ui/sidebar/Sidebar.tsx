@@ -6,53 +6,41 @@ import { Icon } from "../../core/components/icon/Icon";
 
 const cx = bind(styles);
 
-export const Sidebar: React.FunctionComponent<{}> = children => {
-    let { url } = useRouteMatch();
+export const Sidebar: React.FunctionComponent<{}> = (children) => {
+  let { url } = useRouteMatch();
 
-    return (
-        <>
-            <div className={cx("sidebar")}>
-                <div className={cx("sidebar__item")}>
-                    <Icon
-                        size="s"
-                        library="material-icons"
-                        type="image_search"
-                    ></Icon>
-                    <Link to={`${url}/pick`}>Pick</Link>
-                </div>
-                <div className={cx("sidebar__item")}>
-                    <Icon
-                        size="s"
-                        library="material-icons"
-                        type="done_all"
-                    ></Icon>
-                    <Link to={`${url}/live`}>Live</Link>
-                </div>
-                <div className={cx("sidebar__item")}>
-                    <Icon
-                        size="s"
-                        library="material-icons"
-                        type="chat_bubble_outline"
-                    ></Icon>
-                    <Link to={`${url}/chat`}>Chat</Link>
-                </div>
-                <div className={cx("sidebar__item")}>
-                    <Icon
-                        size="s"
-                        library="material-icons"
-                        type="people"
-                    ></Icon>
-                    <Link to={`${url}/profile`}>Profile</Link>
-                </div>
-                <div className={cx("sidebar__item")}>
-                    <Icon
-                        size="s"
-                        library="material-icons"
-                        type="monochrome_photos"
-                    ></Icon>
-                    <Link to={`${url}/photos`}>Photos</Link>
-                </div>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className={cx("sidebar")}>
+        <div className={cx("sidebar__item")}>
+          <Icon size="s" library="material-icons" type="image_search"></Icon>
+          <Link to={`${url}/pick`}>Pick</Link>
+        </div>
+        <div className={cx("sidebar__item")}>
+          <Icon size="s" library="material-icons" type="done_all"></Icon>
+          <Link to={`${url}/live`}>Live</Link>
+        </div>
+        <div className={cx("sidebar__item")}>
+          <Icon
+            size="s"
+            library="material-icons"
+            type="chat_bubble_outline"
+          ></Icon>
+          <Link to={`${url}/chat`}>Chat</Link>
+        </div>
+        <div className={cx("sidebar__item")}>
+          <Icon size="s" library="material-icons" type="people"></Icon>
+          <Link to={`${url}/profile`}>Profile</Link>
+        </div>
+        <div className={cx("sidebar__item")}>
+          <Icon
+            size="s"
+            library="material-icons"
+            type="monochrome_photos"
+          ></Icon>
+          <Link to={`${url}/photos`}>Photos</Link>
+        </div>
+      </div>
+    </>
+  );
 };

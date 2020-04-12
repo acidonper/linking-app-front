@@ -5,6 +5,8 @@ import { signupUser } from "../../utils/test";
 
 describe("Test React Multicomponent Signup", () => {
   it("should have a signup component with a full form", () => {
+    const jsdomAlert = window.alert;
+    window.alert = () => {};
     const mockFn = jest.fn();
     const { getAllByRole, getByText, getByLabelText } = render(
       <Signup
@@ -30,9 +32,12 @@ describe("Test React Multicomponent Signup", () => {
     expect(agesOptions.length).toBe(3);
     expect(pass).toBe;
     expect(passViewer).toBe;
+    window.alert = jsdomAlert;
   });
 
   it("should have a signup component with a full form filled", async () => {
+    const jsdomAlert = window.alert;
+    window.alert = () => {};
     const mockFn = jest.fn();
     const { getByLabelText, getByTestId } = render(
       <Signup
@@ -99,9 +104,12 @@ describe("Test React Multicomponent Signup", () => {
     expect(form).toHaveFormValues({ "Travel Cadence": "low" });
     expect(form).toHaveFormValues({ "Owl Or SkyLark": "owl" });
     expect(form).toHaveFormValues({ "Sexual Preferences": "both" });
+    window.alert = jsdomAlert;
   });
 
   it("should submit a signup component with a full form filled", async () => {
+    const jsdomAlert = window.alert;
+    window.alert = () => {};
     const mockFn = jest.fn();
     const { getByLabelText, getByTestId, getAllByRole } = render(
       <Signup
@@ -112,7 +120,6 @@ describe("Test React Multicomponent Signup", () => {
       />
     );
 
-    const form = getByTestId("form");
     const firstName = getByLabelText("First Name");
     const lastName = getByLabelText("Last Name");
     const username = getByLabelText("Username");
@@ -155,5 +162,6 @@ describe("Test React Multicomponent Signup", () => {
 
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn).toBeCalledWith(signupUser);
+    window.alert = jsdomAlert;
   });
 });

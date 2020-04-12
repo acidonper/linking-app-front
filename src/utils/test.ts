@@ -16,6 +16,20 @@ export const card: Card = {
   infoCity: "Madrid",
 };
 
+export const card2: Card = {
+  username: "pepa",
+  photos: ["http://photo1.com"],
+  infoAge: 19,
+  infoGender: "female",
+  infoEducation: "elementary",
+  infoPhysicalCondition: "thin",
+  infoActivity: "homeLover",
+  infoLifeStyle: "working",
+  infoKidsLover: true,
+  infoPetsLover: true,
+  infoCity: "Madrid",
+};
+
 export const user: User = {
   name: "User",
   lastname: "User",
@@ -94,3 +108,5 @@ export const signupUser = {
   prefOwlOrSkyLark: "owl",
   prefSexualPreferences: "both",
 };
+
+export const pickCards: Card[] = [card, card2];
