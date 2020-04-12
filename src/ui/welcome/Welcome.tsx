@@ -11,7 +11,7 @@ export const Welcome: React.FunctionComponent<{}> = () => {
     <>
       <Frontal></Frontal>
       <div className={cx("content")}>
-        <div className={cx("content__center")}>
+        <div role="WelcomePageMainText" className={cx("content__center")}>
           <h1>Welcome Linking App</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut

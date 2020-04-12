@@ -4,9 +4,9 @@ import styles from "./Signup.module.css";
 import { Button } from "../../core/components/button/Button";
 import { InputText } from "../../core/components/input/inputtext/InputText";
 import { InputPass } from "../../core/components/input/inputpassword/InputPass";
-import { InputRadio } from "../../core/components/input/inputradio/InputRadio";
 import { InputNumber } from "../../core/components/input/inputnumber/InputNumber";
 import { InputSelect } from "../../core/components/input/inputselect/InputSelect";
+import { InputSelectBoolean } from "../../core/components/input/inputselectboolean/InputSelectBoolean";
 import { User } from "../../domain/User";
 import { cities } from "../../domain/Cities";
 
@@ -36,13 +36,20 @@ export const Signup: React.FunctionComponent<Props> = ({
       alert("Error: Operation could not be completed. Please try again");
     } else {
       alert(response);
+      setTimeout(() => {
+        close();
+      }, 1000);
     }
   };
 
   return (
     <>
       <div className={cx("title")}>{title}</div>
-      <form className={cx("container")} onSubmit={handleSubmit}>
+      <form
+        data-testid="form"
+        className={cx("container")}
+        onSubmit={handleSubmit}
+      >
         <div className={cx("container__main")}>
           <InputText
             onChange={(data: string) =>
@@ -92,7 +99,6 @@ export const Signup: React.FunctionComponent<Props> = ({
           <div className={cx("container__options__info")}>
             <h1>Information</h1>
             <div className={cx("container__options__info__age")}>
-              <h2>Age</h2>
               <InputNumber
                 onChange={(data: User["infoAge"]) =>
                   setInputUser({
@@ -107,7 +113,7 @@ export const Signup: React.FunctionComponent<Props> = ({
                 max={65}
               />
             </div>
-            <InputRadio
+            <InputSelect
               name={"Gender"}
               labels={["female", "male"]}
               onChange={(data: User["infoGender"]) =>
@@ -116,8 +122,9 @@ export const Signup: React.FunctionComponent<Props> = ({
                   infoGender: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+              defaultValue={inputUser.infoCity}
+            ></InputSelect>
+            <InputSelect
               name={"Education"}
               labels={["elementary", "highSchool", "university"]}
               onChange={(data: User["infoEducation"]) =>
@@ -126,8 +133,8 @@ export const Signup: React.FunctionComponent<Props> = ({
                   infoEducation: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelect>
+            <InputSelect
               name={"Physical Condition"}
               labels={["thin", "fitness", "curvy"]}
               onChange={(data: User["infoPhysicalCondition"]) =>
@@ -136,8 +143,8 @@ export const Signup: React.FunctionComponent<Props> = ({
                   infoPhysicalCondition: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelect>
+            <InputSelect
               name={"Activity"}
               labels={["homeLover", "active", "energetic"]}
               onChange={(data: User["infoActivity"]) =>
@@ -146,8 +153,8 @@ export const Signup: React.FunctionComponent<Props> = ({
                   infoActivity: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelect>
+            <InputSelect
               name={"Lifestyle"}
               labels={["working", "studying", "enjoying"]}
               onChange={(data: User["infoLifeStyle"]) =>
@@ -156,7 +163,7 @@ export const Signup: React.FunctionComponent<Props> = ({
                   infoLifeStyle: data,
                 })
               }
-            ></InputRadio>
+            ></InputSelect>
             <InputSelect
               name={"City"}
               labels={cities}
@@ -167,30 +174,28 @@ export const Signup: React.FunctionComponent<Props> = ({
                 })
               }
             ></InputSelect>
-            <InputRadio
+            <InputSelectBoolean
               name={"Kids Lover"}
-              labels={[true, false]}
               onChange={(data: User["infoKidsLover"]) =>
                 setInputUser({
                   ...inputUser,
                   infoKidsLover: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelectBoolean>
+            <InputSelectBoolean
               name={"Pets Lover"}
-              labels={[true, false]}
               onChange={(data: User["infoPetsLover"]) =>
                 setInputUser({
                   ...inputUser,
                   infoPetsLover: data,
                 })
               }
-            ></InputRadio>
+            ></InputSelectBoolean>
           </div>
           <div className={cx("container__options__prefs")}>
             <h1>Preferences</h1>
-            <InputRadio
+            <InputSelect
               name={"Cultural Interest"}
               labels={["low", "medium", "high"]}
               onChange={(data: User["prefCulturalInterest"]) =>
@@ -199,8 +204,8 @@ export const Signup: React.FunctionComponent<Props> = ({
                   prefCulturalInterest: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelect>
+            <InputSelect
               name={"Sport Cadence"}
               labels={["low", "medium", "high"]}
               onChange={(data: User["prefSportCadence"]) =>
@@ -209,8 +214,8 @@ export const Signup: React.FunctionComponent<Props> = ({
                   prefSportCadence: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelect>
+            <InputSelect
               name={"Travel Cadence"}
               labels={["low", "medium", "high"]}
               onChange={(data: User["prefTravelCadence"]) =>
@@ -219,8 +224,8 @@ export const Signup: React.FunctionComponent<Props> = ({
                   prefTravelCadence: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelect>
+            <InputSelect
               name={"Owl Or SkyLark"}
               labels={["owl", "skylark"]}
               onChange={(data: User["prefOwlOrSkyLark"]) =>
@@ -229,8 +234,8 @@ export const Signup: React.FunctionComponent<Props> = ({
                   prefOwlOrSkyLark: data,
                 })
               }
-            ></InputRadio>
-            <InputRadio
+            ></InputSelect>
+            <InputSelect
               name={"Sexual Preferences"}
               labels={["male", "female", "both"]}
               onChange={(data: User["prefSexualPreferences"]) =>
@@ -239,9 +244,9 @@ export const Signup: React.FunctionComponent<Props> = ({
                   prefSexualPreferences: data,
                 })
               }
-            ></InputRadio>
+            ></InputSelect>
             <div className={cx("container__options__prefs__age")}>
-              <h2>Range of Age</h2>
+              <label>Range of Age</label>
               <InputNumber
                 onChange={(data: User["prefAgeMin"]) =>
                   setInputUser({
@@ -249,7 +254,7 @@ export const Signup: React.FunctionComponent<Props> = ({
                     prefAgeMin: data,
                   })
                 }
-                label="Minimum Age"
+                label="Minimum"
                 value={inputUser.prefAgeMin}
                 required={true}
                 min={18}
@@ -262,7 +267,7 @@ export const Signup: React.FunctionComponent<Props> = ({
                     prefAgeMax: data,
                   })
                 }
-                label="Maximum Age"
+                label="Maximum"
                 value={inputUser.prefAgeMax}
                 required={true}
                 min={18}

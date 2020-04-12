@@ -1,24 +1,37 @@
 .title {
-    margin-top: var(--l);
-    font-size: var(--title-size-s);
-    font-weight: bold;
+  margin-top: var(--l);
+  font-size: var(--title-size-s);
+  font-weight: bold;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .container > :first-child {
-    padding-top: var(--l);
+  padding-top: var(--xl);
+}
+
+.container label {
+  padding-top: var(--m);
+  font-size: var(--title-size-s);
+  text-align: left !important;
+}
+
+.container input {
+  margin: 0px;
+  margin-top: var(--m);
+  margin-bottom: var(--m);
+  font-size: var(--title-size-xs);
+  text-align: left !important;
 }
 
 .container__button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--l);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--l);
 }

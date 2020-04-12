@@ -9,7 +9,7 @@ export const PrivateRoutes: React.FunctionComponent<{}> = ({
 }) => {
   return (
     <Route
-      path="/base"
+      path="/home"
       {...rest}
       render={({ location }) =>
         isAuthenticated() ? (

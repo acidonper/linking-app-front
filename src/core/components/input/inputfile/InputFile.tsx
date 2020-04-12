@@ -25,7 +25,9 @@ export const InputFile: React.FunctionComponent<Props> = ({
         name={label}
         accept="image/png, image/jpeg"
       />
-      <label htmlFor={label}>{content}</label>
+      <label htmlFor={label} aria-labelledby={label}>
+        {content}
+      </label>
     </>
   );
 };

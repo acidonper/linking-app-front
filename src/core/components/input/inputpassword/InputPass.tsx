@@ -28,6 +28,9 @@ export const InputPass: React.FunctionComponent<Props> = ({
 
   return (
     <>
+      <label htmlFor={label} aria-labelledby={label}>
+        {label}
+      </label>
       {security ? (
         <>
           {required ? (
@@ -41,6 +44,8 @@ export const InputPass: React.FunctionComponent<Props> = ({
               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
               required
               data-testid="Password"
+              name={label}
+              id={label}
             />
           ) : (
             <input
@@ -52,6 +57,8 @@ export const InputPass: React.FunctionComponent<Props> = ({
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
               data-testid="Password"
+              name={label}
+              id={label}
             />
           )}
         </>
@@ -66,6 +73,8 @@ export const InputPass: React.FunctionComponent<Props> = ({
               onChange={(event) => onChange(event.target.value)}
               required
               data-testid="Password"
+              id={label}
+              name={label}
             />
           ) : (
             <input
@@ -75,6 +84,8 @@ export const InputPass: React.FunctionComponent<Props> = ({
               value={value}
               onChange={(event) => onChange(event.target.value)}
               data-testid="Password"
+              id={label}
+              name={label}
             />
           )}
         </>

@@ -13,7 +13,6 @@
   --title-size-xs: 10px;
   --title-size-s: 15px;
   --title-size-m: 20px;
-  --title-size-m: 30px;
   --title-size-l: 35px;
 
   --title-front-size: 135px;
@@ -82,4 +81,6 @@
   --radio-size-l: 200px;
   --radio-size-m: 114px;
   --radio-size-s: 50px;
+
+  --labels-size: 150px;
 }

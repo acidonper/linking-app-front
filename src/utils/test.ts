@@ -73,3 +73,24 @@ export const profileDto: ProfileDto = {
     },
   },
 };
+
+export const signupUser = {
+  name: "test",
+  lastname: "01",
+  username: "test01",
+  email: "test01@example.com",
+  password: "test01password",
+  infoGender: "male",
+  infoEducation: "elementary",
+  infoPhysicalCondition: "thin",
+  infoActivity: "homeLover",
+  infoLifeStyle: "working",
+  infoCity: "Madrid",
+  infoKidsLover: true,
+  infoPetsLover: false,
+  prefCulturalInterest: "low",
+  prefSportCadence: "low",
+  prefTravelCadence: "low",
+  prefOwlOrSkyLark: "owl",
+  prefSexualPreferences: "both",
+};

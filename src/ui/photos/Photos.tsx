@@ -41,16 +41,12 @@ export const Photos: React.FunctionComponent<Props> = ({}) => {
 
   const submitAddPhoto = (photoFile: FileList | null) => {
     if (photoFile != null) {
-      console.log(photoFile[0]);
-
       const fileReader = new FileReader();
 
       fileReader.onload = async (event) => {
         const content = fileReader.result;
         const token: string = localStorage.getItem("token") + "";
         const response = await apiUploadPhoto(token, content);
-
-        console.log(content);
 
         if (Array.isArray(response)) {
           setTimeout(() => {

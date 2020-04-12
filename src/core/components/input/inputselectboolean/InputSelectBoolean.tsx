@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { bind } from "../../../../utils/bind";
 import styles from "./InputSelectBoolean.module.css";
 
@@ -7,7 +7,7 @@ const cx = bind(styles);
 interface Props {
   name: string;
   onChange(data: string | boolean): void;
-  defaultValue: boolean;
+  defaultValue?: boolean;
 }
 
 export const InputSelectBoolean: React.FunctionComponent<Props> = ({
@@ -25,13 +25,16 @@ export const InputSelectBoolean: React.FunctionComponent<Props> = ({
 
   return (
     <div className={cx("select")}>
-      <p>{name}</p>
-      {defaultValue ? (
+      <label htmlFor={name} aria-labelledby={name}>
+        {name}
+      </label>
+      {defaultValue !== undefined ? (
         <select
           id={name}
           name={name}
           onChange={(event) => HandleOnChange(event.target.value)}
-          value="true"
+          value={defaultValue.toString()}
+          required
         >
           <option id="true" value="true">
             true
@@ -45,8 +48,11 @@ export const InputSelectBoolean: React.FunctionComponent<Props> = ({
           id={name}
           name={name}
           onChange={(event) => HandleOnChange(event.target.value)}
-          value="false"
+          required
         >
+          <option id="---" value="">
+            ---
+          </option>
           <option id="true" value="true">
             true
           </option>

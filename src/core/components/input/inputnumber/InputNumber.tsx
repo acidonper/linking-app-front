@@ -23,9 +23,13 @@ export const InputNumber: React.FunctionComponent<Props> = ({
 }) => {
   return (
     <>
+      <label htmlFor={label} aria-labelledby={label}>
+        {label}
+      </label>
       {required ? (
         <input
           type="number"
+          name={label}
           placeholder={label}
           className={cx("input")}
           value={value}
@@ -39,6 +43,7 @@ export const InputNumber: React.FunctionComponent<Props> = ({
       ) : (
         <input
           type="number"
+          name={label}
           placeholder={label}
           className={cx("input")}
           value={value}

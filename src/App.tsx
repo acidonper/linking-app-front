@@ -4,14 +4,14 @@ import { PrivateRoutes } from "./routes/Private";
 import { PublicRoutes } from "./routes/Public";
 
 function App() {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <PublicRoutes />
-                <PrivateRoutes />
-            </Switch>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Switch>
+        <PublicRoutes />
+        <PrivateRoutes />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;

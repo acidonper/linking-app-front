@@ -24,12 +24,16 @@ export const InputText: React.FunctionComponent<Props> = ({
 }) => {
   return (
     <>
+      <label htmlFor={label} aria-labelledby={label}>
+        {label}
+      </label>
       {state ? (
         <>
           {required ? (
             <input
               type={type}
               id={label}
+              name={label}
               placeholder={label}
               className={cx("input")}
               value={value}
@@ -42,6 +46,7 @@ export const InputText: React.FunctionComponent<Props> = ({
             <input
               type={type}
               id={label}
+              name={label}
               placeholder={label}
               className={cx("input")}
               value={value}
@@ -57,6 +62,7 @@ export const InputText: React.FunctionComponent<Props> = ({
             <input
               type={type}
               id={label}
+              name={label}
               placeholder={label}
               className={cx("input")}
               value={value}
@@ -68,6 +74,7 @@ export const InputText: React.FunctionComponent<Props> = ({
             <input
               type={type}
               id={label}
+              name={label}
               placeholder={label}
               className={cx("input")}
               value={value}

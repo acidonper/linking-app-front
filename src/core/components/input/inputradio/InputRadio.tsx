@@ -17,12 +17,13 @@ export const InputRadio: React.FunctionComponent<Props> = ({
 }) => {
   return (
     <div className={cx("radio")}>
-      <h2>{name}</h2>
+      <label aria-labelledby={name}>{name}</label>
       <div className={cx("radio__form")}>
         {labels.map((label) => (
           <div className={cx("radio__form__item")} key={label}>
             <input
               name={name}
+              id={name}
               type="radio"
               onChange={(event) => onChange(event.target.value)}
               required={true}

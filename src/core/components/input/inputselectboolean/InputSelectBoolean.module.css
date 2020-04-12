@@ -1,25 +1,16 @@
 .select {
-    display: flex;
-    flex-direction: column;
-    padding: var(--m);
-}
-
-.select h2 {
-    margin-bottom: var(--m);
-    text-align: left !important;
+  padding: var(--m);
+  text-align: left !important;
+  margin-left: var(--m);
 }
 
 .select select {
-    width: 100%;
-    padding: var(--m) var(--m);
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    box-sizing: border-box;
-    background: var(--on-secondary-color);
-}
-
-.select p {
-    font-size: var(--title-size-s);
+  width: 100%;
+  padding: var(--m) var(--m);
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: var(--on-secondary-color);
 }

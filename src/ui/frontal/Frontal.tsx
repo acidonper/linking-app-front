@@ -66,7 +66,7 @@ export const Frontal: React.FunctionComponent<Props> = () => {
             <Login
               title="Linking App Login"
               text="Login"
-              redirectPath="/home"
+              redirectPath="/home/pick"
               close={showSignin}
               submit={submitSignin}
             ></Login>

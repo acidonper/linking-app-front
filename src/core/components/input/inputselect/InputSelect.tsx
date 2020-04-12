@@ -28,19 +28,41 @@ export const InputSelect: React.FunctionComponent<Props> = ({
 
   return (
     <div className={cx("select")}>
-      <p>{name}</p>
-      <select
-        id={name}
-        name={name}
-        value={defaultValue}
-        onChange={(event) => onChange(event.target.value)}
-      >
-        {inputLabels.map((label) => (
-          <option id={label} value={label} key={label}>
-            {label}
+      <label htmlFor={name} aria-labelledby={name}>
+        {name}
+      </label>
+      {defaultValue ? (
+        <select
+          id={name}
+          name={name}
+          value={defaultValue}
+          onChange={(event) => onChange(event.target.value)}
+          required
+        >
+          {inputLabels.map((label) => (
+            <option id={label} value={label} key={label}>
+              {label}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <select
+          id={name}
+          name={name}
+          onChange={(event) => onChange(event.target.value)}
+          value={defaultValue}
+          required
+        >
+          <option id="---" value="" key="---">
+            ---
           </option>
-        ))}
-      </select>
+          {inputLabels.map((label) => (
+            <option id={label} value={label} key={label}>
+              {label}
+            </option>
+          ))}
+        </select>
+      )}
     </div>
   );
 };
