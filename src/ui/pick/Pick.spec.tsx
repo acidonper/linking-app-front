@@ -31,7 +31,6 @@ describe("Test React Multicomponent Pick", () => {
   });
 
   it("should have a Pick component with a couple of cards", async () => {
-    const jsdomAlert = window.alert;
     window.alert = () => {};
     const fakeCards = pickCards;
     jest
@@ -59,11 +58,9 @@ describe("Test React Multicomponent Pick", () => {
     expect(icons[1]).toHaveTextContent("favorite_border");
     expect(icons[2]).toHaveTextContent("close");
     expect(icons[3]).toHaveTextContent("favorite_border");
-    window.alert = jsdomAlert;
   });
 
   it("should a suggestion card beloved", async () => {
-    const jsdomAlert = window.alert;
     window.alert = () => {};
     const fakeCards = pickCards;
     jest
@@ -112,11 +109,9 @@ describe("Test React Multicomponent Pick", () => {
     expect(newGenders[0]).toHaveTextContent("female");
     expect(newIcons[0]).toHaveTextContent("close");
     expect(newIcons[1]).toHaveTextContent("favorite_border");
-    window.alert = jsdomAlert;
   });
 
   it("should discard a card", async () => {
-    const jsdomAlert = window.alert;
     window.alert = () => {};
     const fakeCards = pickCards;
     jest
@@ -161,6 +156,5 @@ describe("Test React Multicomponent Pick", () => {
     expect(newGenders[0]).toHaveTextContent("female");
     expect(newIcons[0]).toHaveTextContent("close");
     expect(newIcons[1]).toHaveTextContent("favorite_border");
-    window.alert = jsdomAlert;
   });
 });

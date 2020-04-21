@@ -69,6 +69,7 @@ export const Photos: React.FunctionComponent<Props> = ({}) => {
         <div className={cx("container")}>
           {userPhotos.map((photo, index) => (
             <img
+              key={index}
               src={photo}
               alt={photo}
               onClick={() => submitDiscardPhoto(index, photo)}
