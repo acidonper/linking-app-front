@@ -1,41 +1,75 @@
 import React from "react";
 import { Settings } from "./Settings";
-import { render, fireEvent } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
+import ReactDOM from "react-dom";
+import * as profileGetLib from "../../infrastructure/profile/obtain";
+import * as profileModLib from "../../infrastructure/profile/modify";
+import { user } from "../../utils/test";
+import { screen, fireEvent } from "@testing-library/dom";
 
 describe("Test React Multicomponent Settings", () => {
-  it("should have a Settings component with a full form", () => {
-    const { getAllByRole } = render(<Settings />);
+  let container: any;
 
-    const buttons = getAllByRole("button");
-    const profileAccess = getAllByRole("textbox");
-    const profileInformation = getAllByRole("combobox");
-    const agesOptions = getAllByRole("spinbutton");
+  beforeEach(() => {
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    document.body.removeChild(container);
+    container = null;
+  });
+
+  it("should have a Settings component with a full form", async () => {
+    window.alert = () => {};
+    const fakeUser = user;
+    const apiGetProfileMock = jest
+      .spyOn(profileGetLib, "apiGetProfileSettings")
+      .mockImplementationOnce(() => Promise.resolve(fakeUser));
+
+    await act(async () => {
+      ReactDOM.render(<Settings />, container);
+    });
+
+    const buttons = screen.getAllByRole("button");
+    const profileAccess = screen.getAllByRole("textbox");
+    const profileInformation = screen.getAllByRole("combobox");
+    const agesOptions = screen.getAllByRole("spinbutton");
 
     expect(buttons[0]).toHaveTextContent("Save Changes");
     expect(profileAccess.length).toBe(4);
     expect(profileInformation.length).toBe(13);
     expect(agesOptions.length).toBe(2);
+    expect(apiGetProfileMock).toBeCalledTimes(1);
   });
 
   it("should have a Settings component with a full form filled", async () => {
-    const { getByLabelText, getByTestId } = render(<Settings />);
+    window.alert = () => {};
+    const fakeUser = user;
+    jest
+      .spyOn(profileGetLib, "apiGetProfileSettings")
+      .mockImplementationOnce(() => Promise.resolve(fakeUser));
 
-    const form = getByTestId("form");
-    const firstName = getByLabelText("First Name");
-    const lastName = getByLabelText("Last Name");
-    const city = getByLabelText("City");
-    const gender = getByLabelText("Gender");
-    const education = getByLabelText("Education");
-    const physicalCondition = getByLabelText("Physical Condition");
-    const activity = getByLabelText("Activity");
-    const lifestyle = getByLabelText("Lifestyle");
-    const kidsLover = getByLabelText("Kids Lover");
-    const petsLover = getByLabelText("Pets Lover");
-    const culturalInterest = getByLabelText("Cultural Interest");
-    const sportCadence = getByLabelText("Sport Cadence");
-    const travelCadence = getByLabelText("Travel Cadence");
-    const owlOrSkyLark = getByLabelText("Owl Or SkyLark");
-    const sexualPreferences = getByLabelText("Sexual Preferences");
+    await act(async () => {
+      ReactDOM.render(<Settings />, container);
+    });
+
+    const form = screen.getByTestId("form");
+    const firstName = screen.getByLabelText("First Name");
+    const lastName = screen.getByLabelText("Last Name");
+    const city = screen.getByLabelText("City");
+    const gender = screen.getByLabelText("Gender");
+    const education = screen.getByLabelText("Education");
+    const physicalCondition = screen.getByLabelText("Physical Condition");
+    const activity = screen.getByLabelText("Activity");
+    const lifestyle = screen.getByLabelText("Lifestyle");
+    const kidsLover = screen.getByLabelText("Kids Lover");
+    const petsLover = screen.getByLabelText("Pets Lover");
+    const culturalInterest = screen.getByLabelText("Cultural Interest");
+    const sportCadence = screen.getByLabelText("Sport Cadence");
+    const travelCadence = screen.getByLabelText("Travel Cadence");
+    const owlOrSkyLark = screen.getByLabelText("Owl Or SkyLark");
+    const sexualPreferences = screen.getByLabelText("Sexual Preferences");
 
     fireEvent.change(firstName, { target: { value: "test" } });
     fireEvent.change(lastName, { target: { value: "01" } });
@@ -70,15 +104,24 @@ describe("Test React Multicomponent Settings", () => {
   });
 
   it("should submit a Settings component", async () => {
-    const mockFn = jest.fn();
-    const { getAllByRole, getByTestId } = render(<Settings />);
+    window.alert = () => {};
+    const fakeUser = user;
+    jest
+      .spyOn(profileGetLib, "apiGetProfileSettings")
+      .mockImplementationOnce(() => Promise.resolve(fakeUser));
 
-    const form = getByTestId("form");
-    form.onsubmit = mockFn;
-    const buttons = getAllByRole("button");
+    const apiModifyMock = jest
+      .spyOn(profileModLib, "apiModify")
+      .mockImplementationOnce(() => Promise.resolve(fakeUser));
+
+    await act(async () => {
+      ReactDOM.render(<Settings />, container);
+    });
+
+    const buttons = screen.getAllByRole("button");
 
     fireEvent.click(buttons[0]);
 
-    expect(mockFn).toBeCalledTimes(1);
+    expect(apiModifyMock).toBeCalledTimes(1);
   });
 });

@@ -7,7 +7,7 @@ import { InputPass } from "../../core/components/input/inputpassword/InputPass";
 import { InputNumber } from "../../core/components/input/inputnumber/InputNumber";
 import { InputSelect } from "../../core/components/input/inputselect/InputSelect";
 import { InputSelectBoolean } from "../../core/components/input/inputselectboolean/InputSelectBoolean";
-import { User } from "../../domain/User";
+import { User, emptyUser } from "../../domain/User";
 import { cities } from "../../domain/Cities";
 
 const cx = bind(styles);
@@ -25,7 +25,7 @@ export const Signup: React.FunctionComponent<Props> = ({
   close,
   submit,
 }) => {
-  let user: User = {} as any;
+  let user: User = emptyUser;
 
   const [inputUser, setInputUser] = useState(user);
 

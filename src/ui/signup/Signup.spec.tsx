@@ -70,8 +70,8 @@ describe("Test React Multicomponent Signup", () => {
     fireEvent.change(username, { target: { value: "test01" } });
     fireEvent.change(email, { target: { value: "test01@example.com" } });
     fireEvent.change(password, { target: { value: "test01password" } });
-    fireEvent.click(gender, { target: { value: "male" } });
     fireEvent.click(education, { target: { value: "elementary" } });
+    fireEvent.click(gender, { target: { value: "male" } });
     fireEvent.click(physicalCondition, { target: { value: "thin" } });
     fireEvent.click(activity, { target: { value: "homeLover" } });
     fireEvent.click(lifestyle, { target: { value: "working" } });
@@ -89,8 +89,8 @@ describe("Test React Multicomponent Signup", () => {
     expect(form).toHaveFormValues({ Username: "test01" });
     expect(form).toHaveFormValues({ Email: "test01@example.com" });
     expect(form).toHaveFormValues({ Password: "test01password" });
-    expect(form).toHaveFormValues({ Gender: "male" });
     expect(form).toHaveFormValues({ Education: "elementary" });
+    expect(form).toHaveFormValues({ Gender: "male" });
     expect(form).toHaveFormValues({ "Physical Condition": "thin" });
     expect(form).toHaveFormValues({ Activity: "homeLover" });
     expect(form).toHaveFormValues({ Lifestyle: "working" });
@@ -106,7 +106,7 @@ describe("Test React Multicomponent Signup", () => {
   it("should submit a signup component with a full form filled", async () => {
     window.alert = () => {};
     const mockFn = jest.fn();
-    const { getByLabelText, getByTestId, getAllByRole } = render(
+    const { getByLabelText, getAllByRole } = render(
       <Signup
         title="testingSignupTitle"
         text="testingSignupButton"
@@ -133,6 +133,9 @@ describe("Test React Multicomponent Signup", () => {
     const travelCadence = getByLabelText("Travel Cadence");
     const owlOrSkyLark = getByLabelText("Owl Or SkyLark");
     const sexualPreferences = getByLabelText("Sexual Preferences");
+    const ageMaximum = getByLabelText("Maximum");
+    const ageMinimum = getByLabelText("Minimum");
+    const age = getByLabelText("Age");
     const buttons = getAllByRole("button");
 
     fireEvent.change(firstName, { target: { value: "test" } });
@@ -153,6 +156,9 @@ describe("Test React Multicomponent Signup", () => {
     fireEvent.change(travelCadence, { target: { value: "low" } });
     fireEvent.change(owlOrSkyLark, { target: { value: "owl" } });
     fireEvent.change(sexualPreferences, { target: { value: "both" } });
+    fireEvent.change(age, { target: { value: 18 } });
+    fireEvent.change(ageMaximum, { target: { value: 45 } });
+    fireEvent.change(ageMinimum, { target: { value: 18 } });
     fireEvent.click(buttons[0]);
 
     expect(mockFn).toBeCalledTimes(1);

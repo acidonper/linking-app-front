@@ -5,7 +5,7 @@ import { Button } from "../../core/components/button/Button";
 import { InputText } from "../../core/components/input/inputtext/InputText";
 import { InputSelect } from "../../core/components/input/inputselect/InputSelect";
 import { InputNumber } from "../../core/components/input/inputnumber/InputNumber";
-import { User } from "../../domain/User";
+import { User, emptyUser } from "../../domain/User";
 import { cities } from "../../domain/Cities";
 import { apiGetProfileSettings } from "../../infrastructure/profile/obtain";
 import { apiModify } from "../../infrastructure/profile/modify";
@@ -13,10 +13,9 @@ import { InputSelectBoolean } from "../../core/components/input/inputselectboole
 
 const cx = bind(styles);
 
-interface Props {}
-
-export const Settings: React.FunctionComponent<Props> = ({}) => {
-  let user: User = {} as any;
+export const Settings: React.FunctionComponent = ({}) => {
+  let user: User = emptyUser;
+  const [inputUser, setInputUser] = useState(user);
 
   const syncUserProfileSettings = async () => {
     const token: string = localStorage.getItem("token") + "";
@@ -27,8 +26,6 @@ export const Settings: React.FunctionComponent<Props> = ({}) => {
   useEffect(() => {
     syncUserProfileSettings();
   }, []);
-
-  const [inputUser, setInputUser] = useState(user);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

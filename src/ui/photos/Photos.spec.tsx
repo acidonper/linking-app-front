@@ -29,7 +29,6 @@ describe("Test React Multicomponent Photos", () => {
 
   it("should have a Photo component with a couple of photo cards", async () => {
     window.alert = () => {};
-    const fakeCards = ["http://photo01.com", "http://photo02.com"];
     jest
       .spyOn(photosLib, "apiGetPhotos")
       .mockImplementation(() =>

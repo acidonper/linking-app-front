@@ -94,6 +94,7 @@ export const signupUser = {
   username: "test01",
   email: "test01@example.com",
   password: "test01password",
+  infoAge: 18,
   infoGender: "male",
   infoEducation: "elementary",
   infoPhysicalCondition: "thin",
@@ -107,6 +108,11 @@ export const signupUser = {
   prefTravelCadence: "low",
   prefOwlOrSkyLark: "owl",
   prefSexualPreferences: "both",
+  prefAgeMax: 45,
+  prefAgeMin: 18,
+  photos: ["http://photo1.com"],
+  role: "user",
 };
 
 export const pickCards: Card[] = [card, card2];
+export const liveCards: Card[] = [card, card2];

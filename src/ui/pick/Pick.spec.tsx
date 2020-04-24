@@ -1,12 +1,10 @@
 import React from "react";
 import { Pick } from "./Pick";
-import { render } from "@testing-library/react";
 import ReactDOM from "react-dom";
 import { act } from "react-dom/test-utils";
 import { pickCards } from "../../utils/test";
 import * as suggestionLib from "../../infrastructure/suggestion/suggestions";
 import * as belovedLib from "../../infrastructure/suggestion/beloved";
-
 import { screen, fireEvent } from "@testing-library/dom";
 
 describe("Test React Multicomponent Pick", () => {
@@ -22,12 +20,20 @@ describe("Test React Multicomponent Pick", () => {
     container = null;
   });
 
-  it("should have a Pick component without cards", () => {
-    const { getAllByRole } = render(<Pick />);
+  it("should have a Pick component without cards", async () => {
+    window.alert = () => {};
+    const fakeCards = pickCards;
+    const apiGetSuggestionsMock = jest
+      .spyOn(suggestionLib, "apiGetSuggestions")
+      .mockImplementationOnce(() => Promise.resolve(fakeCards));
 
-    const pickEmptyComments = getAllByRole("heading");
+    await act(async () => {
+      ReactDOM.render(<Pick />, container);
+    });
+    const pickEmptyComments = screen.getAllByRole("heading");
 
-    expect(pickEmptyComments.length).toBe(3);
+    expect(pickEmptyComments.length).toBe(2);
+    expect(apiGetSuggestionsMock).toBeCalledTimes(1);
   });
 
   it("should have a Pick component with a couple of cards", async () => {
