@@ -31,7 +31,7 @@ export const Conversation: React.FunctionComponent<Props> = ({
         newMessages.push(msg);
         setChatMessages(newMessages);
       });
-    }, 500);
+    }, 200);
     return () => clearTimeout(timer);
   });
 

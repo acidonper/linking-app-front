@@ -116,3 +116,4 @@ export const signupUser = {
 
 export const pickCards: Card[] = [card, card2];
 export const liveCards: Card[] = [card, card2];
+export const chatCards: Card[] = [card, card2];
