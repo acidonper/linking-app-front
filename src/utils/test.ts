@@ -56,6 +56,20 @@ export const user: User = {
   prefAgeMax: 45,
 };
 
+export const userCard: Card = {
+  username: "pepe",
+  photos: ["http://photo1.com"],
+  infoAge: 18,
+  infoGender: "male",
+  infoEducation: "elementary",
+  infoPhysicalCondition: "thin",
+  infoActivity: "homeLover",
+  infoLifeStyle: "working",
+  infoKidsLover: true,
+  infoPetsLover: true,
+  infoCity: "Madrid",
+};
+
 export const profileDto: ProfileDto = {
   name: "User",
   lastname: "User",

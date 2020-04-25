@@ -5,6 +5,14 @@ import { act } from "react-dom/test-utils";
 import * as chatLib from "../../infrastructure/chat/chat";
 import { screen } from "@testing-library/dom";
 import { fireEvent } from "@testing-library/react";
+import socketIOClient from "socket.io-client";
+
+jest.mock("socket.io-client", () => {
+  const mSocket = {
+    on: jest.fn(),
+  };
+  return jest.fn(() => mSocket);
+});
 
 describe("Test React Multicomponent Conversation", () => {
   let container: any;
@@ -21,7 +29,7 @@ describe("Test React Multicomponent Conversation", () => {
 
   it("should have a Conversation component", async () => {
     window.alert = () => {};
-    const initSocket: SocketIOClient.Socket = {} as any;
+    const mSocket = socketIOClient();
     const joinChatMock = jest
       .spyOn(chatLib, "joinChat")
       .mockImplementationOnce(() => true);
@@ -29,7 +37,7 @@ describe("Test React Multicomponent Conversation", () => {
     await act(async () => {
       ReactDOM.render(
         <Conversation
-          socket={initSocket}
+          socket={mSocket}
           matchPhoto="http://photo1.example.com"
           matchUsername="pepe"
         />,
@@ -53,7 +61,7 @@ describe("Test React Multicomponent Conversation", () => {
 
   it("should have a Conversation component and send a message", async () => {
     window.alert = () => {};
-    const initSocket: SocketIOClient.Socket = {} as any;
+    const mSocket = socketIOClient();
     jest.spyOn(chatLib, "joinChat").mockImplementationOnce(() => true);
     const messageChatMock = jest
       .spyOn(chatLib, "messageChat")
@@ -62,7 +70,7 @@ describe("Test React Multicomponent Conversation", () => {
     await act(async () => {
       ReactDOM.render(
         <Conversation
-          socket={initSocket}
+          socket={mSocket}
           matchPhoto="http://photo1.example.com"
           matchUsername="pepe"
         />,
