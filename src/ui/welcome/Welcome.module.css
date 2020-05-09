@@ -1,20 +1,31 @@
 .content {
-    display: flex;
-    text-align: center;
-    background: var(--surface-color);
-    color: var(--on-surface-color);
-    flex-direction: column;
-    margin-top: var(--m);
-    align-items: center;
+  display: flex;
+  text-align: center;
+  background: var(--surface-color);
+  color: var(--on-surface-color);
+  flex-direction: column;
+  margin-top: var(--m);
+  align-items: center;
 }
 
 .content__center {
-    text-align: center;
-    width: 70%;
+  text-align: center;
+  width: 70%;
 }
 
 .content__center h1 {
-    color: var(--on-surface-color);
-    font-size: var(--title-size-l);
-    margin: var(--l) 0px var(--l) 0px;
+  color: var(--on-surface-color);
+  font-size: var(--title-size-l);
+  margin: var(--l) 0px var(--l) 0px;
+}
+
+.content__center h3 {
+  color: var(--on-surface-color);
+  font-size: var(--title-size-m);
+  margin: var(--l) 0px var(--l) 0px;
+}
+
+.content__center p {
+  color: var(--on-surface-color);
+  margin: var(--l) 0px var(--l) 0px;
 }
